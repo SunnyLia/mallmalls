@@ -1,12 +1,20 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/component/header"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+  "window": {
+    "backgroundTextStyle": "dark", 
+    "navigationBarBackgroundColor": "#000000",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  }
+    "navigationBarTextStyle": "white", 
+    "backgroundColor": "#000000"
+  },
+
+  "networkTimeout": { 
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
 }

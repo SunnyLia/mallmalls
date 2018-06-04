@@ -1,13 +1,22 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="db_header">
+  <view class="db_header_main">
+   <!-- logo和搜索icon -->
+    <view class="db_logo_box" hidden="{{isSearch}}">
+      <view class="db_logo_text">
+        <navigator url="../component/header">市集</navigator>
+      </view>
+      <view class="db_search_icon" bindtap="onSearch">
+        <image src="../../images/search.png"></image>
+      </view>
+    </view>
+    <!-- 搜索块 -->
+    <view class="db_search_box" hidden="{{!isSearch}}">
+      <input type="text" name="content" class="ipt_search" bindconfirm="onSubmit" />
+      <view class="btn_search" bindtap="onSubmit">
+        <image src="../../images/search.png"></image>
+      </view>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <!-- mask遮罩层 -->
+  <view class="db_mask" hidden="{{!isSearch}}" bindtap="onSearch"></view>
 </view>
