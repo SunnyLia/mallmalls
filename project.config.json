@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "touristappid",
-	"projectname": "mm",
+	"projectname": "ggs",
 	"condition": {
 		"search": {
 			"current": -1,

@@ -1,11 +1,11 @@
+/* 头部 */
+
 .db_header .db_header_main {
   position: relative;
   z-index: 110;
   overflow: hidden;
   background-color: #0aa082;
 }
-
-/* logo盒子css */
 
 .db_header .db_logo_box {
   height: 2rem;
@@ -33,8 +33,6 @@
   height: 1.1rem;
 }
 
-/* search盒子css */
-
 .db_header .db_search_box {
   position: relative;
   height: 1.2rem;
@@ -61,10 +59,11 @@
   padding: 0 0.6rem;
 }
 
-.db_header .btn_search image{
+.db_header .btn_search image {
   width: 0.9rem;
   height: 0.9rem;
 }
+
 .db_header .db_mask {
   position: fixed;
   bottom: 0;
@@ -74,4 +73,66 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* 轮播 */
+
+swiper {
+  height: 12rem;
+  width: 100%;
+}
+
+swiper image {
+  height: 12rem;
+  width: 100%;
+}
+
+/* 产品 */
+
+.db_products {
+  padding: 0.2rem;
+}
+
+.pdt_item {
+  width: 50%;
+  float: left;
+  padding: 0 0.2rem;
+  margin: 0.2rem 0;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 0 0 0.4rem #ccc;
+}
+
+.fullLi {
+  width: 100% !important;
+}
+
+.pdt_item .pdt_img {
+  display: block;
+  width: 100%;
+  height: 9rem;
+  position: relative;
+}
+
+.pdt_detail {
+  padding: 0.2rem;
+  box-sizing: border-box;
+  font-size: 0.7rem;
+  height: 2.5rem;
+}
+.pdt_title{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+.pdt_new_price{
+  color: #e17c72;
+  font-weight: 600;
+  display: inline-block
+}
+
+.pdt_old_price {
+  color: #ccc;
+  display: inline-block;
+  text-decoration:line-through;
 }

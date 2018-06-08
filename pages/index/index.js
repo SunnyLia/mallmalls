@@ -1,11 +1,12 @@
-const app = getApp()
-
+var app = getApp()
+var data = require("./json.js");
 Page({
   data: {
-    isSearch: false
+    isSearch: false,
+    swipData: data.data.swipData,
+    products: data.data.products
   },
   onLoad: function () {
-
   },
   onSearch: function (e) {
     this.setData({ isSearch: !(this.data.isSearch) })
@@ -13,7 +14,7 @@ Page({
   onSubmit: function (e) {
     var val = e.detail.value;
     wx.navigateTo({
-      url:'../component/header'
+      url: '../index/index'
     })
   }
 })
