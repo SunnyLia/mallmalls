@@ -10,7 +10,11 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "touristappid",
+<<<<<<< HEAD
 	"projectname": "ggsa",
+=======
+	"projectname": "ggs",
+>>>>>>> 9d66a581f3d6e294b23843616d8109f142bb9643
 	"condition": {
 		"search": {
 			"current": -1,
