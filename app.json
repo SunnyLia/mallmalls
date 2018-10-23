@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 {
   "pages": [
+    "pages/cart/cart",
     "pages/index/index",
     "pages/logs/logs",
     "pages/category/category",
-    "pages/cart/cart",
     "pages/mine/mine"
   ],
   "window": {
@@ -53,24 +52,3 @@
   },
   "debug": true
 }
-=======
-{
-  "pages": [
-    "pages/index/index",
-    "pages/logs/logs"
-  ],
-  "window": {
-    "backgroundTextStyle": "dark", 
-    "navigationBarBackgroundColor": "#000000",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "white", 
-    "backgroundColor": "#000000"
-  },
-
-  "networkTimeout": { 
-    "request": 10000,
-    "downloadFile": 10000
-  },
-  "debug": true
-}
->>>>>>> 9d66a581f3d6e294b23843616d8109f142bb9643

@@ -1,5 +1,8 @@
 {
 	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
@@ -8,23 +11,15 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.94",
+	"libVersion": "2.1.0",
 	"appid": "touristappid",
-<<<<<<< HEAD
-	"projectname": "ggsa",
-=======
-	"projectname": "ggs",
->>>>>>> 9d66a581f3d6e294b23843616d8109f142bb9643
+	"projectname": "dg",
 	"condition": {
 		"search": {
 			"current": -1,
 			"list": []
 		},
 		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
 			"current": -1,
 			"list": []
 		},
