@@ -1,0 +1,99 @@
+<view class="cartList">
+  <view class="list">
+    <view class="content">
+      <view wx:for="{{cartLists}}" class="itemLi">
+        <view class="listTop">
+          <icon wx:if="{{item.checked}}" type="success_circle" size="20" bindtap="checkAll" color="#0aa082" data-index="{{index}}" />
+          <icon wx:else type="circle" size="20" bindtap="checkAll" color="#0aa082" data-index="{{index}}" />
+          <navigator url="{{item.url}}">{{item.name}}</navigator>
+        </view>
+
+        <view class="listBot clearfix" wx:for="{{item.items}}" wx:for-index="i" wx:for-item="itN" data-total="{{itN.amount}}">
+          <view class="checkPos">
+            <icon wx:if="{{itN.checked}}" type="success_circle" size="20" color="#0aa082" bindtap="checkList" data-index="{{index}}" />
+            <icon wx:else type="circle" size="20" bindtap="checkList" color="#0aa082" data-index="{{index}}" />
+          </view>
+          <navigator url="{{itN.product_sku.url}}">
+            <image src="{{itN.product_sku.master_photo.normal_url}}"></image>
+          </navigator>
+          <view class="botWord">
+            <text class="title">{{itN.product_sku.title}}</text>
+            <text class="quality">{{itN.product_sku.color}}</text>
+            <view class="botPri clearfix">
+              <text class="fl red">{{itN.product_sku.promote_price}}</text>
+              <view class="addSub fr">
+                <text class="fl" bindtap="sub" data-index="{{index}}" data-ind="{{i}}">-</text>
+                 {{itN.quantity}}
+                <text class="fr" bindtap="add" data-index="{{index}}" data-ind="{{i}}">+</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="footer">
+      <view class="fl allAll">
+        <icon wx:if="{{isAllAll}}" bindtap="allAll" color="#0aa082" type="success_circle" size="20" />
+        <icon wx:else type="circle" color="#0aa082" size="20" />
+        <text>全选</text>
+      </view>
+      <view class="fr choice">
+        <navigator wx:if="{{totalMoney>0}}" class="choAll">{{totalMoney+".00"}}</navigator>
+        <navigator wx:else>请选择</navigator>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+
+<!-- 小程序购物车demo -->
+
+<!-- <view class="body">
+
+  <view class="carts-list">
+    <view wx:for="{{carts}}" class="carts-item" data-title="{{item.title}}" data-url="{{item.url}}">
+
+      <view class="carts-radio">
+        <icon wx:if="{{item.selected}}" type="success_circle" size="20" bindtap="bindCheckbox" data-index="{{index}}" />
+        <icon wx:else type="circle" size="20" bindtap="bindCheckbox" data-index="{{index}}" />
+      </view>
+
+      <view class="carts-cnt">
+        <image class="carts-image" src="{{item.image}}" mode="aspectFill" />
+        <view class="carts-info">
+          <view class="carts-title clamp2">{{item.title}}</view>
+          <view class="carts-subtitle">
+            <text class="carts-price c--f60">￥{{item.price}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="carts-num">
+        <text class="minus {{minusStatuses[index]}}" data-index="{{index}}" data-type="-" bindtap="bindMinus">-</text>
+        <input type="number" data-index="{{index}}" bindinput="bindIptCartNum" value="{{item.num}}" />
+        <text class="plus normal" data-index="{{index}}" data-type="+" bindtap="bindPlus">+</text>
+      </view>
+
+      <icon class="carts-del" type="clear" size="16" color="#ccc" data-index="{{index}}" bindtap="bindCartsDel" />
+    </view>
+  </view>
+
+  <view class="carts-footer">
+    <view class="bottomfixed">
+      <view class="inner">
+        <view class="chkAll" bindtap="bindSelectAll">
+          <icon wx:if="{{selectedAllStatus}}" type="success_circle" size="20" />
+          <icon wx:else type="circle" size="20" />
+          <text>全选</text>
+        </view>
+        <view class="total">合计：￥{{count}}</view>
+        <view wx:if="{{selectedNum != 0}}" class="btn-pay">去结算({{number}})</view>
+        <view wx:else class="btn-pay disabled">去结算({{number}})</view>
+      </view>
+    </view>
+  </view>
+
+</view>  -->
