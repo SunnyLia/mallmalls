@@ -173,6 +173,13 @@ var list = {
   }
 }
 
+var datas = list.data.shops
+for (var i = 0; i < datas.length;i++){
+  datas[i].checked = false;
+  for (var j = 0; j < datas[i].items.length; j++) {
+    datas[i].items[j].checked = false;
+  }
+}
 module.exports = {
   data: list.data.shops
 }

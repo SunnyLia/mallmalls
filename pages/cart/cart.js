@@ -3,9 +3,9 @@ var data = require("./json.js");
 Page({
   data: {
     cartLists: data.data,
-    selectedAllStatus: false,
-    count: 0,
-    number: 0,
+    isAllAll: false,
+    totalMoney: 0,
+    totalNum: 0,
     carts: [
       { title: '自营商城', image: 'https://img3.doubanio.com/view/dianpu_product_item/small/public/p1964115.jpg', num: '1', price: '198.0', selected: false, "url": "https://market.douban.com/shop/5D/" },
       { title: '自营商城', image: 'https://img3.doubanio.com/view/dianpu_product_item/small/public/p1964115.jpg', num: '1', price: '100.0', selected: false, "url": "https://market.douban.com/shop/5D/" },
@@ -30,54 +30,108 @@ Page({
   //   this.getTotalPrice();
   // },
   sub: function (e) {
-    var index = parseInt(e.currentTarget.dataset.index);
-    var ind = parseInt(e.currentTarget.dataset.ind);
-    var num = this.data.cartLists[index].items[ind].quantity;
+    var index = parseInt(e.currentTarget.dataset.index);//店铺索引
+    var ind = parseInt(e.currentTarget.dataset.ind);//商品索引
+    var list = this.data.cartLists
+    var num = list[index].items[ind].quantity;//获取商品数量
+    var price = list[index].items[ind].product_sku.promote_price;//获取商品价格
     if (num > 1) {
       num--;
     }
-    console.log(num)
-    this.data.cartLists[index].items[ind].quantity = num
+    list[index].items[ind].quantity = num //更新商品数量
+    list[index].items[ind].amount = num * price //更新商品总价格
+
+    this.setData({
+      cartLists: list
+    });
   },
   // 加法
-  bindPlus: function (e) {
-    var index = parseInt(e.currentTarget.dataset.index);
-    var num = this.data.carts[index].num;
-    num++;
-    var carts = this.data.carts;
-    carts[index].num = num;
+  // bindPlus: function (e) {
+  //   var index = parseInt(e.currentTarget.dataset.index);
+  //   var num = this.data.carts[index].num;
+  //   num++;
+  //   var carts = this.data.carts;
+  //   carts[index].num = num;
 
-    // this.setData({
-    //   carts: carts
-    // });
-    this.getTotalPrice();
+  //   // this.setData({
+  //   //   carts: carts
+  //   // });
+  //   this.getTotalPrice();
+  // },
+  add: function (e) {
+    var index = parseInt(e.currentTarget.dataset.index);//店铺索引
+    var ind = parseInt(e.currentTarget.dataset.ind);//商品索引
+    var list = this.data.cartLists
+    var num = list[index].items[ind].quantity;//商品数量
+    var price = list[index].items[ind].product_sku.promote_price;//获取商品价格
+    num++;
+    list[index].items[ind].quantity = num
+    list[index].items[ind].amount = num * price //更新商品总价格
+    this.setData({
+      cartLists: list
+    });
   },
   // 单选
-  bindCheckbox: function (e) {
-    var index = parseInt(e.currentTarget.dataset.index);
-    var selected = this.data.carts[index].selected;
-    var carts = this.data.carts;
-    // var num = parseInt(this.data.carts[index].num);
-    // var price = this.data.carts[index].price;
-    // if (!selected) {
-    //   this.setData({
-    //     count: this.data.count + num * price,
-    //     number: num + this.data.number
+  // bindCheckbox: function (e) {
+  //   var index = parseInt(e.currentTarget.dataset.index);
+  //   var selected = this.data.carts[index].selected;
+  //   var carts = this.data.carts;
+  //   // var num = parseInt(this.data.carts[index].num);
+  //   // var price = this.data.carts[index].price;
+  //   // if (!selected) {
+  //   //   this.setData({
+  //   //     count: this.data.count + num * price,
+  //   //     number: num + this.data.number
 
-    //   });
-    // } else {
-    //   this.setData({
-    //     count: this.data.count - num * price,
-    //     number: this.data.number - num
-    //   });
-    // }
+  //   //   });
+  //   // } else {
+  //   //   this.setData({
+  //   //     count: this.data.count - num * price,
+  //   //     number: this.data.number - num
+  //   //   });
+  //   // }
 
-    carts[index].selected = !selected;
+  //   carts[index].selected = !selected;
 
-    // this.setData({
-    //   carts: carts
-    // });
-    this.getTotalPrice();
+  //   // this.setData({
+  //   //   carts: carts
+  //   // });
+  //   this.getTotalPrice();
+  // },
+  checkList: function (e) {
+    var index = parseInt(e.currentTarget.dataset.index);//店铺索引
+    var ind = parseInt(e.currentTarget.dataset.ind);//商品索引
+    var list = this.data.cartLists
+    var amount = parseInt(list[index].items[ind].amount);//获取商品总价格
+    var totalMoney = this.data.totalMoney;//获取总价格
+    var isAllAll = this.data.isAllAll;//获取全选状态
+    var checked = list[index].items[ind].checked;
+    console.log(totalMoney,amount)
+    if (checked) {//当前商品未中
+      if (totalMoney > 0) {
+        totalMoney = totalMoney - amount;
+      }
+      list[index].chiecked = false//当前店铺未中
+      checked = !checked
+      isAllAll = false;
+    } else {//当前商品选中
+      totalMoney = totalMoney + amount;//计算当前总价钱
+      checked = !checked
+      // 判断是否选择当前店铺的全选
+      var flag = true;
+      for (var i = 0; i < list[index].items.length; i++) {//遍历当前店铺商品
+        if (list[index].items[i].checked == false) {//当前商品未中
+          flag = false;//只要有一个商品没选，不成立
+          break;
+        }
+      }
+      flag == true ? list[index].checked = true : list[index].checked = false;
+    }
+    this.setData({
+      cartLists: list,
+      isAllAll: isAllAll,
+      totalMoney: totalMoney
+    });
   },
   // 全选
   bindSelectAll: function () {
