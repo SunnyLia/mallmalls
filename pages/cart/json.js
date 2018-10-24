@@ -8,7 +8,7 @@ var list = {
       {
         "services_phone": "4008778142",
         "total_quantity": 1,
-        "total_amount": "790.00",
+        "total_amount": "3160.00",
         "url": "https://market.douban.com/shop/5D/",
         "items": [
           {
@@ -180,6 +180,7 @@ for (var i = 0; i < datas.length;i++){
     datas[i].items[j].checked = false;
   }
 }
+console.log(list)
 module.exports = {
   data: list.data.shops
 }

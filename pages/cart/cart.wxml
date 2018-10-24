@@ -9,10 +9,10 @@
           <navigator url="{{item.url}}">{{item.name}}</navigator>
         </view>
 
-        <view class="listBot clearfix" wx:for="{{item.items}}" wx:for-index="i" wx:for-item="itN" data-total="{{itN.amount}}">
+        <view class="listBot clearfix" wx:for="{{item.items}}" wx:for-index="i" wx:for-item="itN">
           <view class="checkPos">
             <!-- 单选 -->
-            <icon wx:if="{{itN.checked}}" type="success_circle" size="20" color="#0aa082" bindtap="checkList" data-index="{{index}}" data-ind="{{i}}"/>
+            <icon wx:if="{{itN.checked}}" type="success_circle" size="20" color="#0aa082" bindtap="checkList" data-index="{{index}}" data-ind="{{i}}" />
             <icon wx:else type="circle" size="20" bindtap="checkList" color="#0aa082" data-index="{{index}}" data-ind="{{i}}" />
           </view>
           <navigator url="{{itN.product_sku.url}}">
@@ -24,8 +24,7 @@
             <view class="botPri clearfix">
               <text class="fl red">{{itN.product_sku.promote_price}}</text>
               <view class="addSub fr">
-                <text class="fl" bindtap="sub" data-index="{{index}}" data-ind="{{i}}">-</text>
-                 {{itN.quantity}}
+                <text class="fl" bindtap="sub" data-index="{{index}}" data-ind="{{i}}">-</text> {{itN.quantity}}
                 <text class="fr" bindtap="add" data-index="{{index}}" data-ind="{{i}}">+</text>
               </view>
             </view>
