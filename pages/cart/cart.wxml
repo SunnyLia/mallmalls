@@ -36,11 +36,12 @@
       <view class="fl allAll">
         <!-- 全选 -->
         <icon wx:if="{{isAllAll}}" bindtap="allAll" color="#0aa082" type="success_circle" size="20" />
-        <icon wx:else type="circle" color="#0aa082" size="20" />
+        <icon wx:else type="circle" bindtap="allAll" color="#0aa082" size="20" />
         <text>全选</text>
       </view>
       <view class="fr choice">
-        <navigator wx:if="{{totalMoney>0}}" class="choAll">{{totalMoney+".00"}}</navigator>
+        <text wx:if="{{totalMoney>0}}">合计：<text class='toatle'>￥{{totalMoney+".00"}}</text></text>
+        <navigator wx:if="{{totalMoney>0}}" class="choAll">去结算 ({{totalNum}})</navigator>
         <navigator wx:else>请选择</navigator>
       </view>
     </view>

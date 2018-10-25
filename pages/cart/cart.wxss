@@ -1,10 +1,11 @@
 .choAll {
   background-color: #0aa082 !important;
 }
-
+page{
+    background: #f4f4f4;
+}
 .cartList .list {
   margin-bottom: 2.2rem;
-  background: #f4f4f4;
 }
 
 .footer .allAll {
@@ -103,25 +104,6 @@
   padding: 0.5rem 0.5rem 0.5rem 2rem;
 }
 
-input[type=checkbox] {
-  display: none;
-}
-
-input[type="checkbox"]+label {
-  position: relative;
-  height: 0.8rem;
-  width: 0.8rem;
-  background: url(images/check_uncheck.png) no-repeat;
-  background-size: cover;
-  display: inline-block;
-  top: 0.1rem;
-}
-
-input[type=checkbox]:checked+label {
-  background: url(images/check_checked.png) no-repeat;
-  background-size: cover;
-}
-
 .cartList .list .itemLi {
   margin-bottom: 0.5rem;
   background-color: #fff;
@@ -135,12 +117,12 @@ input[type=checkbox]:checked+label {
   font-size: 0.6rem;
 }
 
-.cartList .list .itemLi .listTop navigator {
+.cartList .list .itemLi .listTop navigator,.footer view text {
   display: inline-block;
   vertical-align: middle;
 }
 
-.cartList .list .itemLi .listTop icon {
+.cartList .list .itemLi .listTop icon,.footer view icon {
   width: 20px;
   height: 20px;
   vertical-align: middle;
@@ -160,7 +142,9 @@ input[type=checkbox]:checked+label {
 .fr {
   float: right;
 }
-
+.toatle{
+  color: #f05f50;margin-right:0.5rem
+}
 /* <!-- 小程序购物车demo -->
 .c--f60{color: #f60;}
 .clamp1, .clamp2, .clamp3{display: -webkit-box!important; overflow: hidden; -webkit-box-orient: vertical;}

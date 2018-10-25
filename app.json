@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/mine/myCupines/cupines",
+    "pages/mine/mine",
     "pages/cart/cart",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/category/category",
-    "pages/mine/mine"
+    "pages/category/category"
   ],
   "window": {
     "backgroundTextStyle": "dark", 
