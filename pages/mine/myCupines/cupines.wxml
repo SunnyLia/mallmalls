@@ -1,3 +1,4 @@
+<import src="../template/template.wxml" />
 <view class="orderNav">
   <view class='active'>
     <text>可使用</text>
@@ -9,57 +10,6 @@
     <text>已过期</text>
   </view>
 </view>
-<template name="unUsed">
-  <view class="duihuan">
-    <input type="text" placeholder="请输入优惠码" />
-    <text>兑换</text>
-  </view>
-  <view class="unUsed">
-    <view wx:for="{{cuponeLists}}" wx:for-item="cupone" wx:if="{{cupone.status == {{status}}}}">
-      <view class="abc" class="{{cupone.status!=1?abc_gray:''}}">
-        <view class="abc_e" wx:if="{{cupone.status == 2}}">
-          <text>
-                <em>已使用</em>
-          </text>
-        </view>
-        <view class="abc_e" wx:if="{{cupone.status == 3}}">
-          <text>
-                <em>已过期</em>
-          </text>
-        </view>
-        <view class="abc_a">
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-        </view>
-        <view class="abc_b">
-          <text class="b_top">
-                <i>￥</i>
-                <em>{{cupone.offset_amount}}</em>
-          </text>
-          <text class="b_bot">满{{cupone.min_consumption}}元可用</text>
-        </view>
-        <view class="abc_c">
-          <text class="c_top">{{cupone.name}}</text>
-          <text class="c_cen">{{cupone.description}}</text>
-          <text class="c_bot">有效期：{{cupone.display_expire}}</text>
-        </view>
-        <view class="abc_d">
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-        </view>
-      </view>
-    </view>
-  </view>
-</template>
+<view>
+  <template is="cupines" data="{{...template,cuponeLists}}"></template>
+</view>
