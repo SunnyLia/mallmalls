@@ -7,11 +7,16 @@ Page({
    */
   data: {
     cuponeLists: data.data,
-   template:{
-     status: 1
-   }
+    template: {
+      status: 1
+    }
   },
-
+  onTap: function (e) {
+    this.data.template.status = e.currentTarget.dataset.index
+    this.setData({
+      template: this.data.template
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
