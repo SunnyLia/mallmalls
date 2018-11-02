@@ -1,3 +1,5 @@
+var app = getApp()
+var data = require("./json.js");
 Page({
 
   /**
@@ -8,7 +10,7 @@ Page({
     maskShow: false
   },
   showMask: function () {
-    console.log(this.data.length)
+    console.log(this.data.addressLists.length)
     this.data.maskShow = !this.data.maskShow
     this.setData({
       data: this.data

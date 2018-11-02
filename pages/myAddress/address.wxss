@@ -73,3 +73,147 @@
     line-height: 0.9rem;
     padding: 0.08rem 0 !important;
 }
+
+
+
+/* 新增地址框 */
+.addressMask {
+    background-color: #f7f7f7;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+.addressMask .mask .title {
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 0.5rem;
+}
+
+.addressMask .mask .title .fl {
+    font-size: 0.6rem;
+}
+
+.addressMask .mask .title .fr {
+    padding: 0 0.2rem 0 1rem;
+    font-size: 0.85rem;
+    color: #666;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #999;
+    font-size: 0.6rem;
+}
+
+.save .save-btn {
+    display: inline-block;
+    width: 100%;
+    line-height: 1.6rem;
+    height: 1.6rem;
+    margin: 1rem 0;
+    font-size: 0.6rem;
+    background-color: #0aa082;
+    color: #fff;
+    text-align: center;
+}
+
+.addForm .linage {
+    height: 1.6rem;
+    line-height: 1.6rem;
+    font-size: 0.6rem;
+    padding: 0 0.5rem;
+    width: 100%;
+    border: none;
+    color: #000;
+}
+
+.addForm .shengsx .selIcon {
+    position: absolute;
+    border-top: 0.05rem solid #9b9b9b;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-width: 0.2rem;
+    right: 0.3rem;
+    top: 0.7rem;
+}
+
+.addForm .select1 option {
+    font-size: 0.5rem;
+    line-height: 1.6rem;
+    color: #000;
+}
+
+.items select {
+    line-height: 1.6rem;
+    height: 1.6rem;
+    border-radius: 0;
+    width: 100%;
+    padding: 0 0.5rem;
+    font-size: 0.6rem;
+    border: 0;
+}
+
+.items.flex select {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+.addForm .shengsx {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    width: 33%;
+    margin-right: 0.5rem;
+    border: 1px solid #e4e4e4;
+}
+
+.addForm .shengsx:last-child {
+    margin-right: 0;
+}
+
+.items input[type=text],
+.items input[type=number] {
+    background-color: #fff;
+    border: none;
+    box-sizing: border-box;
+    color: #000;
+    vertical-align: middle;
+    outline: none;
+    width: 100%;
+    resize: none;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    font-size: 0.6rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.items.required:before {
+    position: absolute;
+    content: "*";
+    color: #f05f50;
+    left: -0.6rem;
+    top: 0.55rem;
+}
+
+.items.flex {
+    border: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.items {
+    position: relative;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e4e4e4;
+    font-size: 0;
+}
+
+.addForm {
+    padding: 0 0.8rem;
+}
+
