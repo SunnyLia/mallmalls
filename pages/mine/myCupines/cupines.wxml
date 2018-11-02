@@ -11,5 +11,5 @@
   </view>
 </view>
 <view>
-  <template is="cupines" data="{{...template,cuponeLists}}"></template>
+  <template is="cupines" data="{{...template,cuponeLists}}" />
 </view>

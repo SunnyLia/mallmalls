@@ -8,7 +8,8 @@ Page({
   data: {
     cuponeLists: data.data,
     template: {
-      status: 1
+      status: 1,
+      blankPrompt : "这里啥都没有"
     }
   },
   onTap: function (e) {
