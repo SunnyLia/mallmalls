@@ -138,13 +138,13 @@ textarea::-webkit-input-placeholder {
     top: 0.7rem;
 }
 
-.addForm .select1 option {
+.addForm .select1 view {
     font-size: 0.5rem;
     line-height: 1.6rem;
     color: #000;
 }
 
-.items select {
+.items select1 {
     line-height: 1.6rem;
     height: 1.6rem;
     border-radius: 0;
@@ -154,7 +154,7 @@ textarea::-webkit-input-placeholder {
     border: 0;
 }
 
-.items.flex select {
+.items.flex select1 {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     flex: 1;
