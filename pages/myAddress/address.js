@@ -7,13 +7,38 @@ Page({
    */
   data: {
     addressLists: data.data,
-    maskShow: false
+    maskShow: false,
+    provinces: "",
+    province: "请选择",
+    citys: "",
+    city: "请选择",
+    countys:"",
+    county: "请选择",
+    value: [9999, 1, 1],
+    condition: false
   },
   showMask: function () {
-    console.log(this.data.addressLists.length)
     this.data.maskShow = !this.data.maskShow
     this.setData({
       data: this.data
+    })
+  },
+  select: function (e) {
+    var index = e.currentTarget.dataset.index
+
+  },
+  bindChange: function (e) {
+    const val = e.detail.value
+    this.setData({
+      year: this.data.years[val[0]],
+      month: this.data.months[val[1]],
+      day: this.data.days[val[2]]
+    })
+  },
+  open: function (e) {
+    this.data.condition = !this.data.condition;
+    this.setData({
+      condition:this.data.condition
     })
   },
   /**

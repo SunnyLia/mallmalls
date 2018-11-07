@@ -7,12 +7,10 @@
     width: 100%;
     height: 4rem;
     border: 1px solid #e4e4e4;
-    text-align: center;
-    padding: 0.5rem 0;
+    text-align: center
 }
 
-
-.myAddress .address .click text {
+.myAddress .address .click view {
     font-size: 0.5rem;
     color: #f17164;
 }
@@ -20,11 +18,12 @@
 .myAddress .address .click .add {
     font-size: 1.5rem;
     color: #e4e4e4;
+    margin-top: 0.4rem
 }
-
 
 .addressList .listLi {
     width: 100%;
+    box-sizing: border-box;
     height: auto;
     border: 1px solid #e4e4e4;
     margin-bottom: 0.5rem;
@@ -33,6 +32,8 @@
 }
 
 .addressList .listLi .listTop {
+    display: flex;
+    justify-content: space-between;
     height: 1.5rem;
     line-height: 1.5rem;
     border-bottom: 1px solid #e4e4e4;
@@ -47,6 +48,8 @@
 }
 
 .addressList .listLi .listBot .buttons {
+    display: flex;
+    justify-content: space-between;
     line-height: 0.8rem;
     height: 0.8rem;
     margin-top: 0.2rem;
@@ -75,20 +78,24 @@
 }
 
 
-
 /* 新增地址框 */
 .addressMask {
     background-color: #f7f7f7;
     position: fixed;
     width: 100%;
     height: 100%;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
     top: 0;
+    /* display: none */
 }
 
 .addressMask .mask .title {
+    display: flex;
+    justify-content: space-between;
     height: 2rem;
     line-height: 2rem;
-    padding: 0 0.5rem;
+    padding-left: 0.5rem;
 }
 
 .addressMask .mask .title .fl {
@@ -100,22 +107,34 @@
     font-size: 0.85rem;
     color: #666;
 }
+
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
     color: #999;
     font-size: 0.6rem;
 }
 
-.save .save-btn {
-    display: inline-block;
-    width: 100%;
-    line-height: 1.6rem;
-    height: 1.6rem;
-    margin: 1rem 0;
-    font-size: 0.6rem;
-    background-color: #0aa082;
-    color: #fff;
-    text-align: center;
+
+.items {
+    position: relative;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e4e4e4;
+    font-size: 0;
+}
+
+.items.flex {
+    border: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.items.required:before {
+    position: absolute;
+    content: "*";
+    color: #f05f50;
+    left: -0.6rem;
+    top: 0.55rem;
 }
 
 .addForm .linage {
@@ -128,6 +147,32 @@ textarea::-webkit-input-placeholder {
     color: #000;
 }
 
+.addForm .shengsx {
+    position: relative;
+    width: 33%;
+    padding: 0 0.5rem;
+    margin-right: 0.5rem;
+    border: 1px solid #e4e4e4;
+}
+
+.items select1 {
+    line-height: 1.6rem;
+    height: 1.6rem;
+    width: 100%;
+    font-size: 0.6rem;
+}
+
+.addForm .select1 view {
+    font-size: 0.5rem;
+    line-height: 1.6rem;
+    color: #000;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.addForm .shengsx:last-child {
+    margin-right: 0;
+}
+
 .addForm .shengsx .selIcon {
     position: absolute;
     border-top: 0.05rem solid #9b9b9b;
@@ -136,42 +181,6 @@ textarea::-webkit-input-placeholder {
     border-width: 0.2rem;
     right: 0.3rem;
     top: 0.7rem;
-}
-
-.addForm .select1 view {
-    font-size: 0.5rem;
-    line-height: 1.6rem;
-    color: #000;
-}
-
-.items select1 {
-    line-height: 1.6rem;
-    height: 1.6rem;
-    border-radius: 0;
-    width: 100%;
-    padding: 0 0.5rem;
-    font-size: 0.6rem;
-    border: 0;
-}
-
-.items.flex select1 {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-}
-
-.addForm .shengsx {
-    position: relative;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    width: 33%;
-    margin-right: 0.5rem;
-    border: 1px solid #e4e4e4;
-}
-
-.addForm .shengsx:last-child {
-    margin-right: 0;
 }
 
 .items input[type=text],
@@ -191,29 +200,15 @@ textarea::-webkit-input-placeholder {
     padding-right: 0.5rem;
 }
 
-.items.required:before {
-    position: absolute;
-    content: "*";
-    color: #f05f50;
-    left: -0.6rem;
-    top: 0.55rem;
-}
 
-.items.flex {
-    border: 0;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
+.save .save-btn {
+    display: inline-block;
+    width: 100%;
+    line-height: 1.6rem;
+    height: 1.6rem;
+    margin: 1rem 0;
+    font-size: 0.6rem;
+    background-color: #0aa082;
+    color: #fff;
+    text-align: center;
 }
-
-.items {
-    position: relative;
-    margin-bottom: 0.5rem;
-    border: 1px solid #e4e4e4;
-    font-size: 0;
-}
-
-.addForm {
-    padding: 0 0.8rem;
-}
-
