@@ -122,13 +122,6 @@ textarea::-webkit-input-placeholder {
     font-size: 0;
 }
 
-.items.flex {
-    border: 0;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-}
-
 .items.required:before {
     position: absolute;
     content: "*";
@@ -147,41 +140,6 @@ textarea::-webkit-input-placeholder {
     color: #000;
 }
 
-.addForm .shengsx {
-    position: relative;
-    width: 33%;
-    padding: 0 0.5rem;
-    margin-right: 0.5rem;
-    border: 1px solid #e4e4e4;
-}
-
-.items select1 {
-    line-height: 1.6rem;
-    height: 1.6rem;
-    width: 100%;
-    font-size: 0.6rem;
-}
-
-.addForm .select1 view {
-    font-size: 0.5rem;
-    line-height: 1.6rem;
-    color: #000;
-    border-bottom: 1px solid #e4e4e4;
-}
-
-.addForm .shengsx:last-child {
-    margin-right: 0;
-}
-
-.addForm .shengsx .selIcon {
-    position: absolute;
-    border-top: 0.05rem solid #9b9b9b;
-    border-left: 1px solid transparent;
-    border-right: 1px solid transparent;
-    border-width: 0.2rem;
-    right: 0.3rem;
-    top: 0.7rem;
-}
 
 .items input[type=text],
 .items input[type=number] {
@@ -212,3 +170,50 @@ textarea::-webkit-input-placeholder {
     color: #fff;
     text-align: center;
 }
+
+/*时间弹窗  */
+.citypicker {
+    /* position: fixed;
+    height: auto;
+    width: 100%;
+    bottom: 0 */
+}
+
+.citybody {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 238px;
+}
+
+.cityheader {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 38px;
+    line-height: 38px;
+    z-index: 5;
+    border: 1px solid #eaeaea;
+    background: #fff;
+}
+
+.city-cancel {
+    float: left;
+    color: #828282;
+    margin-left: 15px;
+}
+
+.city-true {
+    float: right;
+    color: #10FF10;
+    margin-right: 15px;
+}
+.pickerItem{
+    line-height: 38px;
+}
+/* .section .picker {
+    background-color: #fff;
+    border-bottom: 2px #cccccc solid;
+    border-top: 2px #d9d9d9 solid;
+    padding: 20px;
+} */
