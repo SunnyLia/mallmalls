@@ -19,14 +19,11 @@ Page({
     condition: false
   },
   showMask: function () {
-    this.data.maskShow = !this.data.maskShow
     this.setData({
-      data: this.data
+      maskShow: !this.data.maskShow
     })
   },
-  queren: function () {
 
-  },
   bindChange: function (e) {
     const val = e.detail.value //可以对应省市区的位置
     var tdVal = this.data.value
@@ -41,19 +38,26 @@ Page({
       for (let k = 0; k < list.data[val[0]].regions[0].regions.length; k++) {
         countys.push(list.data[val[0]].regions[0].regions[k].name)
       }
-      return;
+      this.setData({
+        value: [val[0], 0, 0]
+      })
     }
     if (val[1] != tdVal[1]) { //如果市有变化,改变区
       var countys = [];
       for (let k = 0; k < list.data[val[0]].regions[val[1]].regions.length; k++) {
         countys.push(list.data[val[0]].regions[val[1]].regions[k].name)
       }
-      return;
+      this.setData({
+        value: [val[0], val[1], 0]
+      })
     }
-
+    
     this.setData({
-      citys: citys,
-      countys: countys
+      province: list.data[val[0]].name,
+      citys:  citys,
+      city: list.data[val[0]].regions[val[1]].name,
+      countys: countys,
+      county: list.data[val[0]].regions[val[1]].regions[val[2]].name     
     })
   },
   open: function (e) {

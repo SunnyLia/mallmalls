@@ -172,13 +172,6 @@ textarea::-webkit-input-placeholder {
 }
 
 /*时间弹窗  */
-.citypicker {
-    /* position: fixed;
-    height: auto;
-    width: 100%;
-    bottom: 0 */
-}
-
 .citybody {
     position: fixed;
     bottom: 0px;
@@ -205,15 +198,9 @@ textarea::-webkit-input-placeholder {
 
 .city-true {
     float: right;
-    color: #10FF10;
+    color: #0aa082;
     margin-right: 15px;
 }
 .pickerItem{
     line-height: 38px;
 }
-/* .section .picker {
-    background-color: #fff;
-    border-bottom: 2px #cccccc solid;
-    border-top: 2px #d9d9d9 solid;
-    padding: 20px;
-} */
