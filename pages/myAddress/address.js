@@ -9,26 +9,38 @@ Page({
   data: {
     addressLists: data.data,
     maskShow: false,
-    provinces: [],
-    province: "省",
-    citys: [],
-    city: "市",
-    countys: [],
-    county: "区",
-    value: [0, 0, 0],
-    condition: false
+    animate: {
+      provinces: [],
+      province: "请选择",
+      citys: [],
+      city: "请选择",
+      countys: [],
+      county: "请选择",
+      value: [0, 0, 0],
+      condition: false      
+    },
+    animationData: {}
   },
   showMask: function () {
+    this.animation = wx.createAnimation({
+      duration: 500, //动画持续时间 ms
+      timingFunction: "ease" //动画效果
+    })
+    if (this.data.maskShow) {
+      this.animation.height(0 + 'rpx').step()
+    } else {
+      this.animation.height(1332 + 'rpx').step()
+    }
     this.setData({
-      maskShow: !this.data.maskShow
+      maskShow: !this.data.maskShow,
+      animationData: this.animation.export()
     })
   },
-
   bindChange: function (e) {
     const val = e.detail.value //可以对应省市区的位置
-    var tdVal = this.data.value
-    var citys = this.data.citys
-    var countys = this.data.countys
+    var tdVal = this.data.animate.value
+    var citys = this.data.animate.citys
+    var countys = this.data.animate.countys
     if (val[0] != tdVal[0]) { //如果省份有变化,得同时改变市 跟 区
       var citys = [];
       var countys = [];
@@ -51,18 +63,18 @@ Page({
         value: [val[0], val[1], 0]
       })
     }
-    
+
     this.setData({
       province: list.data[val[0]].name,
-      citys:  citys,
+      citys: citys,
       city: list.data[val[0]].regions[val[1]].name,
       countys: countys,
-      county: list.data[val[0]].regions[val[1]].regions[val[2]].name     
+      county: list.data[val[0]].regions[val[1]].regions[val[2]].name
     })
   },
   open: function (e) {
     this.setData({
-      condition: !this.data.condition
+      condition: !this.data.animate.condition
     })
   },
   /**
