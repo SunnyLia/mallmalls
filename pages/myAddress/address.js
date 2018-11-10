@@ -51,7 +51,7 @@ Page({
         countys.push(list.data[val[0]].regions[0].regions[k].name)
       }
       this.setData({
-        value: [val[0], 0, 0]
+        "animate.value": [val[0], 0, 0]
       })
     }
     if (val[1] != tdVal[1]) { //如果市有变化,改变区
@@ -60,22 +60,23 @@ Page({
         countys.push(list.data[val[0]].regions[val[1]].regions[k].name)
       }
       this.setData({
-        value: [val[0], val[1], 0]
+        "animate.value": [val[0], val[1], 0]
       })
     }
 
     this.setData({
-      province: list.data[val[0]].name,
-      citys: citys,
-      city: list.data[val[0]].regions[val[1]].name,
-      countys: countys,
-      county: list.data[val[0]].regions[val[1]].regions[val[2]].name
+      "animate.province": list.data[val[0]].name,
+      "animate.citys": citys,
+      "animate.city": list.data[val[0]].regions[val[1]].name,
+      "animate.countys": countys,
+      "animate.county": list.data[val[0]].regions[val[1]].regions[val[2]].name
     })
   },
   open: function (e) {
     this.setData({
-      condition: !this.data.animate.condition
+      "animate.condition": !this.data.animate.condition
     })
+    console.log(this.data.animate.condition)
   },
   /**
    * 生命周期函数--监听页面加载
@@ -95,9 +96,9 @@ Page({
     }
 
     this.setData({
-      provinces: provinces,
-      citys: citys,
-      countys: countys
+      "animate.provinces": provinces,
+      "animate.citys": citys,
+      "animate.countys": countys
     })
 
   },
