@@ -16,8 +16,9 @@
                     <input type="text" class="linage" placeholder="请选择" value="{{province}}--{{city}}--{{county}}" bindfocus="open" />
                 </view>
                 <view class="items required">
-                    <textarea placeholder="请输入详细地址，例街道号码，楼门号" class="linage" name="detail"></textarea>
+                    <textarea placeholder="请输入详细地址，例街道号码，楼门号" name="detail"></textarea>
                 </view>
+
                 <view class="save">
                     <text class="save-btn default">保存</text>
                 </view>
