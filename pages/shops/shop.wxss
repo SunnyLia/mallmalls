@@ -1,0 +1,150 @@
+.shopNav {
+    height: 1.6rem;
+    line-height: 1.6rem;
+    background-color: #fff;
+    width: 100%;
+    z-index: 2;
+}
+
+.shopNav ul li {
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    font-size: 0.6rem;
+}
+
+.shopNav ul li.active {
+    color: #0aa082;
+}
+
+.shopHeader {
+    width: 100%;
+    height: 2.8rem;
+    background-color: #0aa082;
+    padding: 0.45rem 0.5rem;
+}
+
+.shopHeader .sh_img image {
+    height: 1.9rem;
+    width: 1.9rem;
+    border-radius: 50%;
+    margin-right: 0.4rem;
+}
+
+.shopHeader .sh_title {
+    color: #fff;
+    font-size: 0.58rem;
+    line-height: 1rem;
+}
+
+.shopHeader .sh_title .title_t {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.shopHeader .sh_title .title_b icon {
+    font-size: 0.7rem;
+    padding: 0.1rem;
+}
+
+.shopHome {
+    background-color: #f4f4f4;
+}
+
+.shopHome .shopCont {
+    padding: 0.4rem;
+}
+
+.shopHome .shopCont .shopName {
+    font-size: 0.6rem;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.shopHome .listUl .listLi {
+    width: 50%;
+    float: left;
+    padding: 0 0.2rem;
+    margin-bottom: 0.4rem;
+    box-sizing: border-box;
+}
+
+.shopHome .listUl .listLi.double:last-child {
+    width: 100%;
+}
+
+.shopHome .listUl .listLi.double:last-child .pdt_item .pdt_img {
+    height: 12rem;
+    text-align: center;
+}
+
+.shopHome .pdt_item {
+    background-color: #fff;
+    box-shadow: 0 0 0.4rem #ccc;
+}
+
+.shopHome .pdt_img {
+    display: block;
+    width: 100%;
+    height: 7.5rem;
+    position: relative;
+}
+
+.shopHome .pdt_img image {
+    width: 100%;
+    height: 100%;
+}
+
+.shopHome .pdt_detail {
+    padding: 0.2rem;
+    box-sizing: border-box;
+    font-size: 0.5rem;
+    height: 2rem;
+}
+
+.shopHome .pdt_title navigator {
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #ccc;
+    font-size: 0.55rem;
+    line-height: 0.9rem;
+}
+
+.shopHome .pdt_new_price {
+    color: #e17c72;
+    font-weight: 600;
+    font-size: 0.55rem;
+}
+
+.shopHome .pdt_old_price {
+    color: #ccc;
+    font-size: 0.55rem;
+}
+
+.shopHome .pdt_img .fa {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    color: #e17c72;
+    font-size: 0.7rem;
+}
+
+.shopHome .catena {
+    margin-top: 0.5rem;
+}
+
+.shopHome .catena .c_words {
+    font-size: 0.58rem;
+    padding: 0 0.2rem;
+    line-height: 1.8rem;
+    color: #5c5c5c;
+}
+
+.shopHome .catena .c_words navigator {
+    font-size: inherit;
+    float: right;
+    color: #9a9a9a;
+}

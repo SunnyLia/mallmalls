@@ -1,0 +1,50 @@
+<view>
+    <view class="shopHeader">
+      <view class="sh_img fl">
+        <image src="../../images/default.png" alt=""></image>
+      </view>
+      <view class="sh_title">
+        <view class="title_b"><text>三顿半</text><icon class="fa fa-search fr"></icon></view>
+        <view class="title_t">探索正餐之外的飲食，捕捉自然的每一道風味捕捉自然的每一道風。</view>
+      </view>
+    </view>
+    <view class="shopNav">
+        <view class="clearfix">
+            <view :to="{path:'shopHome'}" tag="li">店铺首页</view>
+            <view :to="{path:'shopAll'}" tag="li">全部商品</view>
+            <navigator url="../index/index.wxml" tag="li">市集首页</navigator>
+        </view>
+    </view>
+    <view class="shopHome">
+        <view class="shopCont" v-for="(items,index) in shopInfo.rooms">
+        <view class="shopName" v-if="index!=0">{{items.name}}</view>
+        <view v-for="(item,i) in items.widgets">
+            <!-- 轮播图 -->
+            <swiper :shopsData="item.photo_data" v-if="item.photo_data"></swiper>
+            <!-- 系列列表 -->
+            <view class="catena" v-else>
+            <view class="c_words">
+                <view>{{item.title}}</view>
+                <navigator href="#/shop/shopAll">更多</navigator>
+            </view>
+            <view class="listUl">
+                <view v-for="product in item.products" :class="listLi {'double':item.products.length%2==1}">
+                    <view class="pdt_item">
+                        <view :to="{path:'/detail'}" class="pdt_img">
+                            <image v-lazy="product.default_sku.master_photos.large_url"><image>
+                            <icon class="fa fa-heart-o" v-on:click="onHeart($event)"></icon>
+                        </view>
+                    <view class="pdt_detail">
+                        <view class="pdt_title">
+                            <navigator href="javascript:;">{{product.title}}</navigator>
+                        </view>
+                        <text class="pdt_new_price" v-for="(price,p) in product.default_sku.price_couple" v-if="p==0">{{price}}</text>
+                        <text class="pdt_old_price" v-for="(price,p) in product.default_sku.price_couple" v-if="p==1">{{price}}</text>
+                    </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        </view>
+    </view>
+</view>
