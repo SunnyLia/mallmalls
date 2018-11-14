@@ -1,12 +1,15 @@
 <view>
     <view class="shopHeader">
-      <view class="sh_img fl">
-        <image src="../../images/default.png" alt=""></image>
-      </view>
-      <view class="sh_title">
-        <view class="title_b"><text>三顿半</text><icon class="fa fa-search fr"></icon></view>
-        <view class="title_t">探索正餐之外的飲食，捕捉自然的每一道風味捕捉自然的每一道風。</view>
-      </view>
+        <view class="sh_img fl">
+            <image src="../../images/default.png" alt=""></image>
+        </view>
+        <view class="sh_title">
+            <view class="title_b">
+                <text>三顿半</text>
+                <icon class="fa fa-search fr"></icon>
+            </view>
+            <view class="title_t">探索正餐之外的飲食，捕捉自然的每一道風味捕捉自然的每一道風。</view>
+        </view>
     </view>
     <view class="shopNav">
         <view class="clearfix">
@@ -16,35 +19,43 @@
         </view>
     </view>
     <view class="shopHome">
-        <view class="shopCont" v-for="(items,index) in shopInfo.rooms">
-        <view class="shopName" v-if="index!=0">{{items.name}}</view>
-        <view v-for="(item,i) in items.widgets">
-            <!-- 轮播图 -->
-            <swiper :shopsData="item.photo_data" v-if="item.photo_data"></swiper>
-            <!-- 系列列表 -->
-            <view class="catena" v-else>
-            <view class="c_words">
-                <view>{{item.title}}</view>
-                <navigator href="#/shop/shopAll">更多</navigator>
-            </view>
-            <view class="listUl">
-                <view v-for="product in item.products" :class="listLi {'double':item.products.length%2==1}">
-                    <view class="pdt_item">
-                        <view :to="{path:'/detail'}" class="pdt_img">
-                            <image v-lazy="product.default_sku.master_photos.large_url"><image>
-                            <icon class="fa fa-heart-o" v-on:click="onHeart($event)"></icon>
+        <view class="shopCont" wx:for="{{shopInfo.rooms}}" wx:for-item="items">
+            <view class="shopName" wx:if="{{index!=0}}">{{items.name}}</view>
+            <view wx:for="{{items.widgets}}" wx:for-index="i">
+                <!-- 轮播图 -->
+                <swiper indicator-dots="{{swipData.indicatorDots}}" autoplay="{{swipData.autoplay}}" interval="{{swipData.interval}}" duration="{{swipData.duration}}">
+                    <block wx:for="{{swipData.imgUrls}}">
+                        <swiper-item>
+                            <image src="{{item}}" class="slide-image" />
+                        </swiper-item>
+                    </block>
+                </swiper>
+                <!-- 系列列表 -->
+                <view class="catena" wx:else></view>
+                <view class="c_words">
+                    <view>{{item.title}}</view>
+                    <navigator src="shopAll.wxml">更多</navigator>
+                </view>
+                <view class="listUl">
+                    <view wx:for="{{item.products}}" :class="listLi {'double':item.products.length%2==1}" wx:for-item="product" wx:for-index="ind">
+                        <view class="pdt_item">
+                            <navigator url="detail" redirect="true" class="pdt_img">
+                                <image src="{{product.default_sku.master_photos.large_url}}"></image>
+                                <icon class="fa fa-heart-o" bindtab="onHeart($event)" data-index="ind"></icon>
+                            </navigator>
+                            <view class="pdt_detail">
+                                <view class="pdt_title">{{product.title}}</view>
+                                <text class="pdt_new_price" wx:for="{{product.default_sku.price_couple}}" wx:for-item="price" wx:for-index="p" wx:if="{{p==0}}">
+                                    {{price}}
+                                </text>
+                                <text class="pdt_old_price" wx:for="{{product.default_sku.price_couple}}" wx:for-item="price" wx:for-index="p" wx:if="{{p==1}}">
+                                    {{price}}
+                                </text>
+                            </view>
                         </view>
-                    <view class="pdt_detail">
-                        <view class="pdt_title">
-                            <navigator href="javascript:;">{{product.title}}</navigator>
-                        </view>
-                        <text class="pdt_new_price" v-for="(price,p) in product.default_sku.price_couple" v-if="p==0">{{price}}</text>
-                        <text class="pdt_old_price" v-for="(price,p) in product.default_sku.price_couple" v-if="p==1">{{price}}</text>
-                    </view>
                     </view>
                 </view>
             </view>
-        </view>
         </view>
     </view>
 </view>
