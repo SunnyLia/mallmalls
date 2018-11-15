@@ -62,7 +62,7 @@
 }
 
 .shopHome .shopCont {
-    padding: 0.4rem;
+    /* padding: 0.4rem; */
 }
 
 .shopHome .shopCont .shopName {
@@ -90,6 +90,7 @@
 
 .shopHome .pdt_item {
     background-color: #fff;
+    padding:0.4rem;
     box-shadow: 0 0 0.4rem #ccc;
 }
 
@@ -126,6 +127,7 @@
     color: #e17c72;
     font-weight: 600;
     font-size: 0.55rem;
+    line-height: 0.5rem;
 }
 
 .shopHome .pdt_old_price {
@@ -147,7 +149,8 @@
 
 .shopHome .catena .c_words {
     font-size: 0.58rem;
-    padding: 0 0.2rem;
+    padding: 0 0.4rem;
+    height: 1.8rem;
     line-height: 1.8rem;
     color: #5c5c5c;
 }
@@ -156,4 +159,11 @@
     font-size: inherit;
     float: right;
     color: #9a9a9a;
+}
+swiper{
+    height: 200px;
+}
+.slide-image{
+    width: 100%;
+    height: 100%
 }

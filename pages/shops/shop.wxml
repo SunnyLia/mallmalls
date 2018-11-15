@@ -23,36 +23,35 @@
             <view class="shopName" wx:if="{{index!=0}}">{{items.name}}</view>
             <view wx:for="{{items.widgets}}" wx:for-index="i">
                 <!-- 轮播图 -->
-                <view wx:if="{{item.photo_data}}">
-                    <swiper indicator-dots="{{swipData.indicatorDots}}" autoplay="{{swipData.autoplay}}" interval="{{swipData.interval}}" duration="{{swipData.duration}}">
-                        <block wx:for="{{swipData.imgUrls}}">
-                            <swiper-item>
-                                <image src="{{item}}" class="slide-image" />
-                            </swiper-item>
-                        </block>
-                    </swiper>
-                </view>
+                <swiper wx:if="{{item.photo_data}}" indicator-dots="{{swipData.indicatorDots}}" autoplay="{{swipData.autoplay}}" interval="{{swipData.interval}}" duration="{{swipData.duration}}">
+                    <block wx:for="{{swipData.imgUrls}}">
+                        <swiper-item>
+                            <image src="{{item}}" class="slide-image" />
+                        </swiper-item>
+                    </block>
+                </swiper>
                 <!-- 系列列表 -->
-                <view class="catena" wx:else></view>
-                <view class="c_words">
-                    <view>{{item.title}}</view>
-                    <navigator src="shopAll.wxml">更多</navigator>
-                </view>
-                <view class="listUl">
-                    <view wx:for="{{item.products}}" :class="listLi {'double':item.products.length%2==1}" wx:for-item="product" wx:for-index="ind">
-                        <view class="pdt_item">
-                            <navigator url="detail" redirect="true" class="pdt_img">
-                                <image src="{{product.default_sku.master_photos.large_url}}"></image>
-                                <icon class="fa fa-heart-o" bindtab="onHeart($event)" data-index="ind"></icon>
-                            </navigator>
-                            <view class="pdt_detail">
-                                <view class="pdt_title">{{product.title}}</view>
-                                <text class="pdt_new_price" wx:for="{{product.default_sku.price_couple}}" wx:for-item="price" wx:for-index="p" wx:if="{{p==0}}">
-                                    {{price}}
-                                </text>
-                                <text class="pdt_old_price" wx:for="{{product.default_sku.price_couple}}" wx:for-item="price" wx:for-index="p" wx:if="{{p==1}}">
-                                    {{price}}
-                                </text>
+                <view class="catena" wx:else>
+                    <view class="c_words">
+                        <view class="fl">{{item.title}}</view>
+                        <navigator src="shopAll.wxml" class="fr">更多</navigator>
+                    </view>
+                    <view class="listUl">
+                        <view wx:for="{{item.products}}" :class="listLi {'double':item.products.length%2==1}" wx:for-item="product" wx:for-index="ind">
+                            <view class="pdt_item">
+                                <navigator url="detail" redirect="true" class="pdt_img">
+                                    <image src="{{product.default_sku.master_photos.large_url}}"></image>
+                                    <icon class="fa fa-heart-o" bindtab="onHeart($event)" data-index="ind"></icon>
+                                </navigator>
+                                <view class="pdt_detail">
+                                    <view class="pdt_title">{{product.title}}</view>
+                                    <text class="pdt_new_price fl" wx:for="{{product.default_sku.price_couple}}" wx:for-item="price" wx:for-index="p" wx:if="{{p==0}}">
+                                        {{price}}
+                                    </text>
+                                    <text class="pdt_old_price fl" wx:for="{{product.default_sku.price_couple}}" wx:for-item="price" wx:for-index="p" wx:if="{{p==1}}">
+                                        {{price}}
+                                    </text>
+                                </view>
                             </view>
                         </view>
                     </view>
