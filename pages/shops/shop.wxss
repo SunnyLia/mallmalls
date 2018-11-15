@@ -6,22 +6,31 @@
     z-index: 2;
 }
 
-.shopNav ul li {
+.shopNav view {
     float: left;
     width: 33.33%;
     text-align: center;
     font-size: 0.6rem;
 }
 
-.shopNav ul li.active {
+.shopNav view.active {
     color: #0aa082;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
 }
 
 .shopHeader {
     width: 100%;
-    height: 2.8rem;
+    height: 2rem;
     background-color: #0aa082;
-    padding: 0.45rem 0.5rem;
+    padding: 0.75rem 0.5rem;
+
 }
 
 .shopHeader .sh_img image {
