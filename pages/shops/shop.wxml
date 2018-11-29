@@ -19,10 +19,9 @@
         </view>
     </view>
     <view class="shopHome">
-        <view class="shopCont" wx:for="{{shopInfo.rooms}}" wx:for-item="items">
+        <!-- <view class="shopCont" wx:for="{{shopInfo.rooms}}" wx:for-item="items">
             <view class="shopName" wx:if="{{index!=0}}">{{items.name}}</view>
             <view wx:for="{{items.widgets}}" wx:for-index="i">
-                <!-- 轮播图 -->
                 <swiper wx:if="{{item.photo_data}}" indicator-dots="{{swipData.indicatorDots}}" autoplay="{{swipData.autoplay}}" interval="{{swipData.interval}}" duration="{{swipData.duration}}">
                     <block wx:for="{{swipData.imgUrls}}">
                         <swiper-item>
@@ -30,11 +29,10 @@
                         </swiper-item>
                     </block>
                 </swiper>
-                <!-- 系列列表 -->
                 <view class="catena" wx:else>
                     <view class="c_words">
                         <view class="fl">{{item.title}}</view>
-                        <navigator src="shopAll.wxml" class="fr">更多</navigator>
+                        <navigator src="shopAll.wxml" class="fr">更多 》</navigator>
                     </view>
                     <view class="listUl">
                         <view wx:for="{{item.products}}" :class="listLi {'double':item.products.length%2==1}" wx:for-item="product" wx:for-index="ind">
@@ -56,6 +54,22 @@
                         </view>
                     </view>
                 </view>
+            </view>
+        </view> -->
+        <view class="shopAll">
+            <view class="all">
+                <scroll-view class="scroll-view-x" scroll-x="true">
+                    <ul>
+                        <li class="cur">全部</li>
+                        <li>手冲壶</li>
+                        <li>挂耳咖啡</li>
+                        <li>咖啡豆</li>
+                        <li>咖啡粉</li>
+                        <li>咖啡壶</li>
+                        <li>咖啡杯</li>
+                        <li>咖啡器具</li>
+                    </ul>
+                </scroll-view>
             </view>
         </view>
     </view>
