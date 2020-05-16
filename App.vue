@@ -1,5 +1,9 @@
+<!-- 应用配置，用来配置App全局样式以及监听 -->
 <script>
 export default {
+	globalData: {  
+	            text: 'text'  
+	        },
 	onLaunch: function() {
 		console.log('App Launch');
 	},

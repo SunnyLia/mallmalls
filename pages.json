@@ -1,8 +1,18 @@
 {
 	"pages": [{
-		"path": "pages/index/index",
+		"path": "pages/home/index",
 		"style": {
-			"navigationBarTitleText": "uni-ui基础项目"
+			"navigationBarTitleText": "首页"
+		}
+	},{
+		"path": "pages/mine/index",
+		"style": {
+			"navigationBarTitleText": "我的"
+		}
+	},{
+		"path": "pages/feature/index",
+		"style": {
+			"navigationBarTitleText": "功能"
 		}
 	}],
 	"globalStyle": {
@@ -10,5 +20,27 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#007AFF",
 		"backgroundColor": "#FFFFFF"
+	},
+	"tabBar": {
+	    "color": "#7A7E83",
+	    "selectedColor": "#0aa082",
+	    "borderStyle": "black",
+	    "backgroundColor": "#ffffff",
+	    "list": [{
+	        "pagePath": "pages/home/index",
+	        "iconPath": "static/images/home.png",
+	        "selectedIconPath": "static/images/home_active.png",
+	        "text": "首页"
+	    }, {
+	        "pagePath": "pages/feature/index",
+	        "iconPath": "static/images/feature.png",
+	        "selectedIconPath": "static/images/feature_active.png",
+	        "text": "功能"
+	    }, {
+	        "pagePath": "pages/mine/index",
+	        "iconPath": "static/images/mine.png",
+	        "selectedIconPath": "static/images/mine_active.png",
+	        "text": "我的"
+	    }]
 	}
 }
