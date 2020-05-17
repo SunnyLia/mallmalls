@@ -2,7 +2,8 @@
 	"pages": [{
 		"path": "pages/home/index",
 		"style": {
-			"navigationBarTitleText": "首页"
+			"navigationBarTitleText": "首页",
+			"navigationStyle": "custom"
 		}
 	},{
 		"path": "pages/mine/index",
