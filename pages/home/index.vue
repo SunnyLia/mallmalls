@@ -1,8 +1,17 @@
 <template>
 	<view class="container">
-		<view class="intro">本项目已包含uni ui组件，无需import和注册，可直接使用。在代码区键入字母u，即可通过代码助手列出所有可用组件。光标置于组件名称处按F1，即可查看组件文档。</view>
-		<text class="intro">详见：</text>
-		<uni-link :href="href" :text="href"></uni-link>
+		<view class="search-box">
+			<image src="../../static/images/scan.png" mode=""></image>
+			<view class="search-text">
+				<image src="../../static/images/search.png" mode=""></image>
+				<input class="ser-input" type="text" value="输入关键字搜索" disabled />
+				<text class="">
+					搜索
+				</text>
+			</view>
+
+			<image src="../../static/images/message.png" mode=""></image>
+		</view>
 	</view>
 </template>
 
@@ -19,10 +28,43 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	.container {
-		padding: 20px;
-		font-size: 14px;
-		line-height: 24px;
+		padding: 0 20rpx;
+		color: #7A7E83;
+		font-size: 14rpx;
+	}
+
+	.search-box {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 9999;
+		width: 100%;
+		display: flex;
+		padding: 10rpx;
+		box-sizing: border-box;
+		background: #eaeaea;
+
+		image {
+			width: 60rpx;
+			height: 60rpx;
+		}
+
+		.search-text {
+			flex: 1;
+			display: flex;
+			.ser-input {
+				height: 56rpx;
+				line-height: 56rpx;
+				font-size: 14rpx;
+				margin: 0 10rpx;
+				padding: 0 20rpx;
+
+				border: 1rpx solid #0aa082;
+				border-radius: 28rpx;
+				background: rgba(255, 255, 255, 0.6);
+			}
+		}
 	}
 </style>
