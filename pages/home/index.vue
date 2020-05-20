@@ -1,6 +1,7 @@
 <template>
 	<view class="container">
-		<!-- <view class="search-box">
+		<!-- 
+		<view class="search-box">
 			<image src="../../static/images/scan.png" mode=""></image>
 			<view class="search-text">
 				<image src="../../static/images/search.png" mode="" class="ser-img"></image>
@@ -8,16 +9,14 @@
 				<text class="ser-text">搜索</text>
 			</view>
 			<image src="../../static/images/message.png" mode=""></image>
-		</view> -->
-		<!-- <view class="classify_box"> -->
-		<!-- <view class="cls_scroll"> -->
-		<!-- <view v-for="(item, index) in classifyList" class="cls_item" :class="{'active':scoActive==index}" :key="index">{{item.name}}</view> -->
-		<!-- </view> -->
-		<!-- <view> -->
-		<!-- <image class="cls_img" src="../../static/images/classify.png"></image> -->
-		<!-- </view> -->
-		<!-- </view>  -->
-		<!-- <view class="swipe_box">
+		</view>
+		<view class="classify_box">
+			<view class="cls_scroll">
+				<view v-for="(item, index) in classifyList" class="cls_item" :class="{'active':scoActive==index}" :key="index">{{item.name}}</view>
+			</view>
+			<image class="cls_img" src="../../static/images/classify.png"></image>
+		</view>
+		<view class="swipe_box">
 			<swiper class="swiper" :indicator-dots="true" circular="true" indicator-active-color="#0aa082" :autoplay="true"
 			 interval="2000">
 				<swiper-item class="swi_item" v-for="(item, index) in swipeList" :key="index">
@@ -33,9 +32,9 @@
 		</view>
 		<view class="staImg_box">
 			<image src="../../static/images/jds.gif"></image>
-		</view> -->
+		</view>
 		<view class="pinlei_box">
-			<!-- 			<view class="pl_item" v-for="(item,index) in pinleiList" :key="index">
+			<view class="pl_item" v-for="(item,index) in pinleiList" :key="index">
 				<image :src="item.url" class="pl_img"></image>
 				<view class="pl_item_ul">
 					<view class="pl_item_li" v-for="(val,ind) in item.items" :key="ind">
@@ -52,7 +51,7 @@
 						</view>
 					</view>
 				</view>
-			</view> -->
+			</view>
 			<view class="pl_news">
 				<text class="nws_text">淘宝头条</text>
 				<swiper class="new_swip" :autoplay="true" :vertical="true" :circular="true">
@@ -63,6 +62,15 @@
 				</swiper>
 			</view>
 		</view>
+		 -->
+		<view class="more_box">
+			<block v-for="(item,index) in moreClassify" :key="index">
+				<view class="more_classify" :class="{'active':index == moreActive}">
+					<view class="more_top">{{item.name}}</view>
+					<text class="more_bot">{{item.text}}</text>
+				</view>
+			</block>
+		</view>
 	</view>
 </template>
 
@@ -71,6 +79,28 @@
 		data() {
 			return {
 				scoActive: 0,
+				moreActive: 0,
+				moreClassify: [{
+						name: "全部",
+						text: "猜你喜欢"
+					},
+					{
+						name: "告白季",
+						text: "立即抢购"
+					},
+					{
+						name: "直播",
+						text: "新品搭配购"
+					},
+					{
+						name: "便宜好货",
+						text: "特价抢购"
+					},
+					{
+						name: "买家秀",
+						text: "真实晒单"
+					},
+				],
 				taobNews: [{
 					classify: "评测",
 					text: "网红瓶盖饮料，三秒钟把水变成饮料"
@@ -246,8 +276,52 @@
 		font-size: 24rpx;
 	}
 
+	.more_box {
+		display: flex;
+
+		.more_classify {
+			width: 20%;
+			text-align: center;
+			position: relative;
+
+			.more_top {
+				font-size: 30rpx;
+				font-weight: bold;
+				color: #000;
+			}
+		}
+
+		.more_classify.active {
+			.more_top {
+				color: #0aa082
+			}
+
+			.more_bot {
+				background: #0aa082;
+				color: #fff;
+				display: inline-block;
+				padding: 0 10rpx 3rpx 10rpx;
+				border-radius: 20px;
+			}
+		}
+
+		.more_classify:after {
+			content: "";
+			position: absolute;
+			height: 50rpx;
+			width: 0;
+			border: 1rpx solid #eaeaea;
+			right: 0;
+			top: 12rpx
+		}
+
+		.more_classify:last-child:after {
+			border: 0;
+		}
+	}
+
 	.pinlei_box {
-		padding: 10rpx 20rpx;
+		padding: 20rpx;
 		background: #eaeaea;
 
 		.pl_news {
@@ -271,7 +345,7 @@
 			.new_swip {
 				width: 100%;
 				height: 100%;
-				font-size: 28rpx;
+				font-size: 26rpx;
 				color: #333;
 
 				.red {
@@ -308,7 +382,7 @@
 					height: 100%;
 					padding-right: 15rpx;
 					box-sizing: border-box;
-					font-size: 28rpx;
+					font-size: 26rpx;
 					float: left;
 
 					.pl_item_left,
