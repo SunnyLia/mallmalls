@@ -35,18 +35,32 @@
 			<image src="../../static/images/jds.gif"></image>
 		</view> -->
 		<view class="pinlei_box">
-			<view class="pl_item" v-for="(item,index) in pinleiList" :key="index">
-				<!-- <image :src="item.url" class="pl_img"></image> -->
+			<!-- 			<view class="pl_item" v-for="(item,index) in pinleiList" :key="index">
+				<image :src="item.url" class="pl_img"></image>
 				<view class="pl_item_ul">
 					<view class="pl_item_li" v-for="(val,ind) in item.items" :key="ind">
-						<view class="pl_item_left">
-							<text>{{val.name}}</text>
-							<!-- <view class="item_img"> -->
-							<image :src="val.img"></image>
-							<!-- </view> -->
+						<view class="pl_item_left" v-if="val.name">
+							<text class="item_text" :style="{color:val.color}">{{val.name}}</text>
+							<view class="item_img">
+								<image :src="val.img"></image>
+							</view>
+						</view>
+						<view class="pl_item_right" v-else>
+							<view class="item_img">
+								<image :src="val.img"></image>
+							</view>
 						</view>
 					</view>
 				</view>
+			</view> -->
+			<view class="pl_news">
+				<text class="nws_text">淘宝头条</text>
+				<swiper class="new_swip" :autoplay="true" :vertical="true" :circular="true">
+					<swiper-item v-for="(item,index) in taobNews" :key="index">
+						<text class="red">{{item.classify}}</text>
+						<text>{{item.text}}</text>
+					</swiper-item>
+				</swiper>
 			</view>
 		</view>
 	</view>
@@ -57,33 +71,74 @@
 		data() {
 			return {
 				scoActive: 0,
+				taobNews: [{
+					classify: "评测",
+					text: "网红瓶盖饮料，三秒钟把水变成饮料"
+				}, {
+					classify: "摄影",
+					text: "专治镜头尴尬症，7个女生通用pose"
+				}, {
+					classify: "评测",
+					text: "实测：五款最强防霾滤芯安利给你"
+				}, {
+					classify: "萌宠",
+					text: "为什么唤猫的名字，它总不搭理？"
+				}],
 				pinleiList: [{
-						name: "聚划算",
-						url: "../../static/images/jhs.png",
-						items: [{
-								name: "淘抢购",
-								img: "../../static/images/item4.png",
-							},
-							{
-								name: "抢大额券",
-								img: "../../static/images/item6.png",
-							}
-						]
-					},
-					// {
-					// 	name: "淘宝直播",
-					// 	url: "../../static/images/tbzb.png",
-					// 	items: [{
-					// 			name: "汪涵8点直播",
-					// 			img: "../../static/images/item5.png",
-					// 		},
-					// 		{
-					// 			name: null,
-					// 			img: "../../static/images/item10.jpg",
-					// 		}
-					// 	]
-					// }
-				],
+					name: "聚划算",
+					url: "../../static/images/jhs.png",
+					items: [{
+							name: "淘抢购",
+							color: "#50bdff",
+							img: "../../static/images/item4.png",
+						},
+						{
+							name: "天天特卖",
+							color: "#ff82a2",
+							img: "../../static/images/item6.png",
+						}
+					]
+				}, {
+					name: "淘宝直播",
+					url: "../../static/images/tbzb.png",
+					items: [{
+							name: "汪涵8点直播",
+							color: "#ff611d",
+							img: "../../static/images/item5.png",
+						},
+						{
+							name: "9.9包邮",
+							color: "#f9a500",
+							img: "../../static/images/item10.jpg",
+						}
+					]
+				}, {
+					name: "聚划算",
+					url: "../../static/images/jhs.png",
+					items: [{
+							name: "淘抢购",
+							color: "#50bdff",
+							img: "../../static/images/item4.png",
+						},
+						{
+							name: "天天特卖",
+							color: "#ff82a2",
+							img: "../../static/images/item6.png",
+						}
+					]
+				}, {
+					name: "淘宝直播",
+					url: "../../static/images/tbzb.png",
+					items: [{
+							name: "汪涵8点直播",
+							color: "#ff611d",
+							img: "../../static/images/item5.png",
+						},
+						{
+							img: "../../static/images/item10.jpg",
+						}
+					]
+				}],
 				functList: [{
 						name: "天猫超市",
 						url: "../../static/images/tmcs.png"
@@ -195,6 +250,41 @@
 		padding: 10rpx 20rpx;
 		background: #eaeaea;
 
+		.pl_news {
+			height: 80rpx;
+			line-height: 80rpx;
+			background: #fff;
+			border-top: 1px solid #eaeaea;
+			border-radius: 0 0 20rpx 20rpx;
+			padding: 0 20rpx;
+			display: flex;
+			overflow: hidden;
+
+			.nws_text {
+				font-size: 32rpx;
+				color: #000;
+				font-weight: bold;
+				width: 170rpx;
+				display: inline-block;
+			}
+
+			.new_swip {
+				width: 100%;
+				height: 100%;
+				font-size: 28rpx;
+				color: #333;
+
+				.red {
+					display: inline;
+					background-color: #feefec;
+					color: #e86217;
+					padding: 4rpx 10rpx;
+					border-radius: 4rpx;
+					margin: 0 10rpx 0 5rpx;
+				}
+			}
+		}
+
 		.pl_item {
 			background: #fff;
 			width: 50%;
@@ -210,18 +300,41 @@
 
 			.pl_item_ul {
 				padding: 0 6rpx 0 20rpx;
+				height: 200rpx;
 
 				.pl_item_li {
 					display: inline-block;
 					width: 50%;
+					height: 100%;
 					padding-right: 15rpx;
 					box-sizing: border-box;
+					font-size: 28rpx;
+					float: left;
 
-					.pl_item_left {
+					.pl_item_left,
+					.pl_item_right {
 						background: #fff8fa;
 						border-radius: 10rpx;
-						height: 160rpx;
-						padding:0 10rpx 8rpx;
+						height: 100%;
+						padding: 8rpx 10rpx;
+						box-sizing: border-box;
+
+						.item_img {
+							width: 100%;
+							height: 100%;
+						}
+					}
+
+					.pl_item_left {
+						padding: 40rpx 10rpx 8rpx;
+						position: relative;
+
+						.item_text {
+							position: absolute;
+							top: 0;
+							height: 40rpx;
+							line-height: 40rpx;
+						}
 					}
 
 					image {
@@ -238,6 +351,14 @@
 
 		.pl_item:nth-child(2) {
 			border-radius: 0 20rpx 0 0;
+		}
+
+		.pl_item:nth-child(2n) {
+
+			.pl_item_left,
+			.pl_item_right {
+				background: #fff !important;
+			}
 		}
 	}
 
