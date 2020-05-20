@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<!-- 
+		
 		<view class="search-box">
 			<image src="../../static/images/scan.png" mode=""></image>
 			<view class="search-text">
@@ -34,6 +34,7 @@
 			<image src="../../static/images/jds.gif"></image>
 		</view>
 		<view class="pinlei_box">
+			<uni-countdown class="countDown" :show-day="false" :hour="1" :minute="12" :second="12"></uni-countdown>
 			<view class="pl_item" v-for="(item,index) in pinleiList" :key="index">
 				<image :src="item.url" class="pl_img"></image>
 				<view class="pl_item_ul">
@@ -62,7 +63,7 @@
 				</swiper>
 			</view>
 		</view>
-		 -->
+		
 		<view class="more_box">
 			<block v-for="(item,index) in moreClassify" :key="index">
 				<view class="more_classify" :class="{'active':index == moreActive}">
@@ -71,6 +72,8 @@
 				</view>
 			</block>
 		</view>
+		
+		
 	</view>
 </template>
 
@@ -275,6 +278,12 @@
 		color: #7A7E83;
 		font-size: 24rpx;
 	}
+//倒计时
+	.countDown {
+		position: absolute;
+		left: 180rpx;
+		top:28rpx
+	}
 
 	.more_box {
 		display: flex;
@@ -323,7 +332,7 @@
 	.pinlei_box {
 		padding: 20rpx;
 		background: #eaeaea;
-
+		position: relative;
 		.pl_news {
 			height: 80rpx;
 			line-height: 80rpx;
