@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view class="search-box">
+		<!-- <view class="search-box">
 			<image src="../../static/images/scan.png" mode=""></image>
 			<view class="search-text">
 				<image src="../../static/images/search.png" mode="" class="ser-img"></image>
@@ -8,16 +8,16 @@
 				<text class="ser-text">搜索</text>
 			</view>
 			<image src="../../static/images/message.png" mode=""></image>
-		</view>
-		<view class="classify_box">
-			<view class="cls_scroll">
-				<view v-for="(item, index) in classifyList" class="cls_item" :class="{'active':scoActive==index}" :key="index">{{item.name}}</view>
-			</view>
-			<!-- <view> -->
-			<image class="cls_img" src="../../static/images/classify.png"></image>
-			<!-- </view> -->
-		</view>
-		<view class="swipe_box">
+		</view> -->
+		<!-- <view class="classify_box"> -->
+		<!-- <view class="cls_scroll"> -->
+		<!-- <view v-for="(item, index) in classifyList" class="cls_item" :class="{'active':scoActive==index}" :key="index">{{item.name}}</view> -->
+		<!-- </view> -->
+		<!-- <view> -->
+		<!-- <image class="cls_img" src="../../static/images/classify.png"></image> -->
+		<!-- </view> -->
+		<!-- </view>  -->
+		<!-- <view class="swipe_box">
 			<swiper class="swiper" :indicator-dots="true" circular="true" indicator-active-color="#0aa082" :autoplay="true"
 			 interval="2000">
 				<swiper-item class="swi_item" v-for="(item, index) in swipeList" :key="index">
@@ -33,18 +33,19 @@
 		</view>
 		<view class="staImg_box">
 			<image src="../../static/images/jds.gif"></image>
-		</view>
+		</view> -->
 		<view class="pinlei_box">
 			<view class="pl_item" v-for="(item,index) in pinleiList" :key="index">
-				<image :src="item.url" class="pl_img"></image>
-				<view>
-					<view class="pl_item_item" v-for="(val,ind) in item.items" :key="ind">
-						<text>{{val.name}}</text>
-						<!-- <view class="item_img"> -->
-						<image :src="val.img"></image>
-						<!-- </view> -->
+				<!-- <image :src="item.url" class="pl_img"></image> -->
+				<view class="pl_item_ul">
+					<view class="pl_item_li" v-for="(val,ind) in item.items" :key="ind">
+						<view class="pl_item_left">
+							<text>{{val.name}}</text>
+							<!-- <view class="item_img"> -->
+							<image :src="val.img"></image>
+							<!-- </view> -->
+						</view>
 					</view>
-
 				</view>
 			</view>
 		</view>
@@ -69,19 +70,19 @@
 							}
 						]
 					},
-					{
-						name: "淘宝直播",
-						url: "../../static/images/tbzb.png",
-						items: [{
-								name: "汪涵8点直播",
-								img: "../../static/images/item5.png",
-							},
-							{
-								name: null,
-								img: "../../static/images/item10.jpg",
-							}
-						]
-					}
+					// {
+					// 	name: "淘宝直播",
+					// 	url: "../../static/images/tbzb.png",
+					// 	items: [{
+					// 			name: "汪涵8点直播",
+					// 			img: "../../static/images/item5.png",
+					// 		},
+					// 		{
+					// 			name: null,
+					// 			img: "../../static/images/item10.jpg",
+					// 		}
+					// 	]
+					// }
 				],
 				functList: [{
 						name: "天猫超市",
@@ -200,30 +201,43 @@
 			padding: 10rpx 0;
 			box-sizing: border-box;
 			display: inline-block;
+			border-right: 1px solid #eaeaea;
 
 			.pl_img {
 				height: 40rpx;
 				width: 100%;
 			}
 
-			.pl_item_item {
-				width: 50%;
-				padding: 0 20rpx;
-				box-sizing: border-box;
-				display: inline-block;
+			.pl_item_ul {
+				padding: 0 6rpx 0 20rpx;
 
-				// .item_img {
-				// 	width: 100%;
-				// 	height: 0;
-				// 	padding-bottom: 100%;
-				// 	overflow: hidden;
-				image {
-					width: 100%;
-					height: 100%;
+				.pl_item_li {
+					display: inline-block;
+					width: 50%;
+					padding-right: 15rpx;
+					box-sizing: border-box;
+
+					.pl_item_left {
+						background: #fff8fa;
+						border-radius: 10rpx;
+						height: 160rpx;
+						padding:0 10rpx 8rpx;
+					}
+
+					image {
+						width: 100%;
+						height: 100%;
+					}
 				}
-
-				// }
 			}
+		}
+
+		.pl_item:nth-child(1) {
+			border-radius: 20rpx 0 0 0;
+		}
+
+		.pl_item:nth-child(2) {
+			border-radius: 0 20rpx 0 0;
 		}
 	}
 
