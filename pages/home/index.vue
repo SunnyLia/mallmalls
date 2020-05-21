@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
-		
-		<view class="search-box">
+
+		<!-- 	<view class="search-box">
 			<image src="../../static/images/scan.png" mode=""></image>
 			<view class="search-text">
 				<image src="../../static/images/search.png" mode="" class="ser-img"></image>
@@ -62,18 +62,57 @@
 					</swiper-item>
 				</swiper>
 			</view>
-		</view>
-		
-		<view class="more_box">
+		</view> -->
+
+		<!-- 		<view class="more_box">
 			<block v-for="(item,index) in moreClassify" :key="index">
 				<view class="more_classify" :class="{'active':index == moreActive}">
 					<view class="more_top">{{item.name}}</view>
 					<text class="more_bot">{{item.text}}</text>
 				</view>
 			</block>
+		</view> -->
+		<view class="productList">
+			<view class="pro_half">
+				<view class="pro_item">
+					<!-- <image class="item_img" src="../../static/images/item12.jpg"></image> -->
+					<view class="item_expre">
+						<view class="item_text">我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的</view>
+						<view class="item_tag">
+							<text class="tag">别的不说</text>
+							<text class="tag">123</text>
+						</view>
+						<view class="item_price">
+							<view class="price_left">
+								<text class="red">￥<text class="big">125</text>.00</text>
+								<text>销售12笔</text>
+							</view>
+							<image class="price_right" src="../../static/images/omit.png"></image>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="pro_half">
+				<view class="pro_item">
+					<!-- <image class="item_img" src="../../static/images/item12.jpg"></image> -->
+					<view class="item_expre">
+						<view class="item_text">我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的</view>
+						<view class="item_tag">
+							<text class="tag">别的不说</text>
+							<text class="tag">123</text>
+						</view>
+						<view class="item_price">
+							<view class="price_left">
+								<text class="red">￥<text class="big">125</text>.00</text>
+								<text>销售12笔</text>
+							</view>
+							<image class="price_right" src="../../static/images/omit.png"></image>
+						</view>
+					</view>
+				</view>
+			</view>
 		</view>
-		
-		
+
 	</view>
 </template>
 
@@ -105,73 +144,81 @@
 					},
 				],
 				taobNews: [{
-					classify: "评测",
-					text: "网红瓶盖饮料，三秒钟把水变成饮料"
-				}, {
-					classify: "摄影",
-					text: "专治镜头尴尬症，7个女生通用pose"
-				}, {
-					classify: "评测",
-					text: "实测：五款最强防霾滤芯安利给你"
-				}, {
-					classify: "萌宠",
-					text: "为什么唤猫的名字，它总不搭理？"
-				}],
+						classify: "评测",
+						text: "网红瓶盖饮料，三秒钟把水变成饮料"
+					},
+					{
+						classify: "摄影",
+						text: "专治镜头尴尬症，7个女生通用pose"
+					},
+					{
+						classify: "评测",
+						text: "实测：五款最强防霾滤芯安利给你"
+					},
+					{
+						classify: "萌宠",
+						text: "为什么唤猫的名字，它总不搭理？"
+					}
+				],
 				pinleiList: [{
-					name: "聚划算",
-					url: "../../static/images/jhs.png",
-					items: [{
-							name: "淘抢购",
-							color: "#50bdff",
-							img: "../../static/images/item4.png",
-						},
-						{
-							name: "天天特卖",
-							color: "#ff82a2",
-							img: "../../static/images/item6.png",
-						}
-					]
-				}, {
-					name: "淘宝直播",
-					url: "../../static/images/tbzb.png",
-					items: [{
-							name: "汪涵8点直播",
-							color: "#ff611d",
-							img: "../../static/images/item5.png",
-						},
-						{
-							name: "9.9包邮",
-							color: "#f9a500",
-							img: "../../static/images/item10.jpg",
-						}
-					]
-				}, {
-					name: "聚划算",
-					url: "../../static/images/jhs.png",
-					items: [{
-							name: "淘抢购",
-							color: "#50bdff",
-							img: "../../static/images/item4.png",
-						},
-						{
-							name: "天天特卖",
-							color: "#ff82a2",
-							img: "../../static/images/item6.png",
-						}
-					]
-				}, {
-					name: "淘宝直播",
-					url: "../../static/images/tbzb.png",
-					items: [{
-							name: "汪涵8点直播",
-							color: "#ff611d",
-							img: "../../static/images/item5.png",
-						},
-						{
-							img: "../../static/images/item10.jpg",
-						}
-					]
-				}],
+						name: "聚划算",
+						url: "../../static/images/jhs.png",
+						items: [{
+								name: "淘抢购",
+								color: "#50bdff",
+								img: "../../static/images/item4.png",
+							},
+							{
+								name: "天天特卖",
+								color: "#ff82a2",
+								img: "../../static/images/item6.png",
+							}
+						]
+					},
+					{
+						name: "淘宝直播",
+						url: "../../static/images/tbzb.png",
+						items: [{
+								name: "汪涵8点直播",
+								color: "#ff611d",
+								img: "../../static/images/item5.png",
+							},
+							{
+								name: "9.9包邮",
+								color: "#f9a500",
+								img: "../../static/images/item10.jpg",
+							}
+						]
+					},
+					{
+						name: "聚划算",
+						url: "../../static/images/jhs.png",
+						items: [{
+								name: "淘抢购",
+								color: "#50bdff",
+								img: "../../static/images/item4.png",
+							},
+							{
+								name: "天天特卖",
+								color: "#ff82a2",
+								img: "../../static/images/item6.png",
+							}
+						]
+					},
+					{
+						name: "淘宝直播",
+						url: "../../static/images/tbzb.png",
+						items: [{
+								name: "汪涵8点直播",
+								color: "#ff611d",
+								img: "../../static/images/item5.png",
+							},
+							{
+								img: "../../static/images/item10.jpg",
+							}
+						]
+					}
+				],
 				functList: [{
 						name: "天猫超市",
 						url: "../../static/images/tmcs.png"
@@ -220,7 +267,6 @@
 						src: "../../static/images/home_2.jpg"
 					}
 				],
-				href: 'https://uniapp.dcloud.io/component/README?id=uniui',
 				classifyList: [{
 						name: "首页"
 					},
@@ -278,15 +324,101 @@
 		color: #7A7E83;
 		font-size: 24rpx;
 	}
-//倒计时
+
+	//倒计时
 	.countDown {
 		position: absolute;
 		left: 180rpx;
-		top:28rpx
+		top: 28rpx
+	}
+
+	.productList {
+		padding: 0 20rpx;
+		background: #eaeaea;
+		box-sizing: border-box;
+
+		.pro_half {
+			width: 50%;
+			display: inline-block;
+			padding: 0 10rpx;
+			box-sizing: border-box;
+
+			.pro_item {
+				background: #fff;
+				border-radius: 14rpx;
+
+				.item_expre {
+					padding: 0 10rpx;
+					box-sizing: border-box;
+
+					.item_tag {
+						.tag {
+							display: inline-block;
+							padding: 0 10rpx 2rpx;
+							border: 1rpx solid #999;
+							border-radius: 4rpx;
+							margin-right: 10rpx;
+							color: #999;
+						}
+					}
+
+					.item_text {
+						width: 100%;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						display: box;
+						display: -webkit-box;
+						line-clamp: 2;
+						-webkit-line-clamp: 2;
+						-webkit-box-orient: vertical;
+					}
+
+					.item_price {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+
+						.price_left {
+							color: #999;
+
+							.red {
+								color: red;
+								margin-right: 10rpx;
+							}
+
+							.big {
+								font-size: 32rpx;
+							}
+						}
+
+						.price_right {
+							width: 40rpx;
+							height: 40rpx;
+						}
+					}
+				}
+
+				.item_img {
+					width: 100%;
+					height: 340rpx;
+				}
+
+
+			}
+		}
+
+		.pro_half:nth-child(2n) {
+			padding: 0 0 0 10rpx;
+		}
+
+		.pro_half:nth-child(2n+1) {
+			padding: 0 10rpx 0 0;
+		}
 	}
 
 	.more_box {
 		display: flex;
+		background: #eaeaea;
 
 		.more_classify {
 			width: 20%;
@@ -333,6 +465,7 @@
 		padding: 20rpx;
 		background: #eaeaea;
 		position: relative;
+
 		.pl_news {
 			height: 80rpx;
 			line-height: 80rpx;
