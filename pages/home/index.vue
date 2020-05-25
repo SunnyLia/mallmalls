@@ -353,20 +353,20 @@
 	}
 
 	.productList {
-		padding: 0 20rpx;
-		background: #eaeaea;
-		box-sizing: border-box;
+		// padding: 0 20rpx;
+		// background: #eaeaea;
+		// box-sizing: border-box;
 
 		.pro_half {
 			width: 50%;
 			display: inline-block;
 			padding: 0 10rpx;
 			box-sizing: border-box;
-
+			margin-bottom: 20rpx;
 			.pro_item {
 				background: #fff;
 				border-radius: 14rpx;
-
+				overflow: hidden;
 				.item_expre {
 					padding: 0 10rpx;
 					box-sizing: border-box;
@@ -747,7 +747,7 @@
 	}
 
 	uni-swiper {
-		height: 100%;
+		height: auto;
 	}
 
 	.swiper .uni-swiper-wrapper {
@@ -756,5 +756,7 @@
 
 	uni-swiper-item {
 		overflow: visible;
+		box-sizing: border-box;
+		    padding: 0 10px;
 	}
 </style>

@@ -40,4 +40,10 @@
 		line-height: 1 !important;
 		color: #ff611d !important;
 	}
+	uni-swiper .uni-swiper-wrapper{
+		overflow: visible;
+	}
+	uni-page-wrapper{
+		background: #eaeaea;
+	}
 </style>
