@@ -64,64 +64,78 @@
 			</view>
 		</view> -->
 
-		<!-- 		<view class="more_box">
+		<view class="more_box">
 			<block v-for="(item,index) in moreClassify" :key="index">
-				<view class="more_classify" :class="{'active':index == moreActive}">
+				<view class="more_classify" :class="{'active':index == tabCurIndex}">
 					<view class="more_top">{{item.name}}</view>
 					<text class="more_bot">{{item.text}}</text>
 				</view>
 			</block>
-		</view> -->
-		<view class="productList">
-			<view class="pro_half">
-				<view class="pro_item">
-					<!-- <image class="item_img" src="../../static/images/item12.jpg"></image> -->
-					<view class="item_expre">
-						<view class="item_text">我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的</view>
-						<view class="item_tag">
-							<text class="tag">别的不说</text>
-							<text class="tag">123</text>
-						</view>
-						<view class="item_price">
-							<view class="price_left">
-								<text class="red">￥<text class="big">125</text>.00</text>
-								<text>销售12笔</text>
-							</view>
-							<image class="price_right" src="../../static/images/omit.png"></image>
-						</view>
-					</view>
-				</view>
-			</view>
-			<view class="pro_half">
-				<view class="pro_item">
-					<!-- <image class="item_img" src="../../static/images/item12.jpg"></image> -->
-					<view class="item_expre">
-						<view class="item_text">我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的</view>
-						<view class="item_tag">
-							<text class="tag">别的不说</text>
-							<text class="tag">123</text>
-						</view>
-						<view class="item_price">
-							<view class="price_left">
-								<text class="red">￥<text class="big">125</text>.00</text>
-								<text>销售12笔</text>
-							</view>
-							<image class="price_right" src="../../static/images/omit.png"></image>
-						</view>
-					</view>
-				</view>
-			</view>
 		</view>
-
+		<view class="productList">
+			<swiper class="swiper" @change="changeTab" :current="tabCurIndex">
+				<swiper-item v-for="(item,index) in moreClassify" :key="index">
+					<view class="pro_half" v-for="(val,ind) in orderList" :key="ind">
+						<view class="pro_item">
+							<image class="item_img" src="../../static/images/item12.jpg"></image>
+							<view class="item_expre">
+								<view class="item_text">我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的</view>
+								<view class="item_tag">
+									<text class="tag">别的不说</text>
+									<text class="tag">123</text>
+								</view>
+								<view class="item_price">
+									<view class="price_left">
+										<text class="red">￥<text class="big">125</text>.00</text>
+										<text>销售12笔</text>
+									</view>
+									<image class="price_right" src="../../static/images/omit.png"></image>
+								</view>
+							</view>
+						</view>
+					</view>
+					<uniLoadMore></uniLoadMore>
+				</swiper-item>
+			</swiper>
+		</view>
 	</view>
 </template>
 
 <script>
+	import uniLoadMore from '@/components/uni-load-more/uni-load-more.vue';
 	export default {
 		data() {
 			return {
+				tabCurIndex: 0,
 				scoActive: 0,
-				moreActive: 0,
+				// moreActive: 0,
+				orderList: [{
+					imgUrl: "../../static/images/item12.jpg",
+					text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
+					tagList: ["别的不说", "123"],
+					price: '125:00',
+					volume: 12
+				}, {
+					imgUrl: "../../static/images/item12.jpg",
+					text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
+					tagList: ["别的不说", "123"],
+					price: '125:00',
+					volume: 12
+				}, {
+					imgUrl: "../../static/images/item12.jpg",
+					text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
+					tagList: ["别的不说", "123"],
+					price: '125:00',
+					volume: 12
+				}, {
+					imgUrl: "../../static/images/item12.jpg",
+					text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
+					tagList: ["别的不说", "123"],
+					price: '125:00',
+					volume: 12
+				}],
+
+
 				moreClassify: [{
 						name: "全部",
 						text: "猜你喜欢"
@@ -313,7 +327,13 @@
 			}
 		},
 		methods: {
-
+			changeTab: function(e) {
+				console.log(e.target)
+				this.tabCurIndex = e.target.current;
+			}
+		},
+		components: {
+			uniLoadMore
 		}
 	}
 </script>
@@ -353,6 +373,9 @@
 
 					.item_tag {
 						.tag {
+							font-size: 18rpx;
+							-webkit-transform: scale(0.84, 0.84);
+							*font-size: 18rpx;
 							display: inline-block;
 							padding: 0 10rpx 2rpx;
 							border: 1rpx solid #999;
@@ -721,5 +744,17 @@
 				line-height: 58rpx;
 			}
 		}
+	}
+
+	uni-swiper {
+		height: 100%;
+	}
+
+	.swiper .uni-swiper-wrapper {
+		overflow: visible !important;
+	}
+
+	uni-swiper-item {
+		overflow: visible;
 	}
 </style>
