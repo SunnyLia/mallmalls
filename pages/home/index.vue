@@ -77,22 +77,30 @@
 				<swiper-item v-for="(item,index) in moreClassify" :key="index">
 					<view class="pro_half" v-for="(val,ind) in orderList" :key="ind">
 						<view class="pro_item">
-							<image class="item_img" src="../../static/images/item12.jpg"></image>
+							<view class="pro_mask" @click="changeImg" v-show="ind == isImgShow">
+								<view class="mask_top">
+									<view class="top_li">商品不感兴趣</view>
+									<view class="top_li">蒙蔽更多同类</view>
+									<view class="top_li">图片引起不适</view>
+								</view>
+								<view class="mask_bot">找相似 》</view>
+							</view>
+							<image class="item_img" :src="val.imgUrl"></image>
 							<view class="item_expre">
-								<view class="item_text">我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的</view>
+								<view class="item_text">{{val.text}}</view>
 								<view class="item_tag">
-									<text class="tag">别的不说</text>
-									<text class="tag">123</text>
+									<view class="tag" v-for="(v,i) in val.tagList" :key="i">{{v}}</view>
 								</view>
 								<view class="item_price">
 									<view class="price_left">
-										<text class="red">￥<text class="big">125</text>.00</text>
-										<text>销售12笔</text>
+										<text class="red">￥<text class="big">{{val.price.split(".")[0]}}</text>.{{val.price.split(".")[1]}}</text>
+										<text>销售{{val.volume}}笔</text>
 									</view>
-									<image class="price_right" src="../../static/images/omit.png"></image>
+									<image @click="changeImg(ind)" class="price_right" src="../../static/images/omit.png"></image>
 								</view>
 							</view>
 						</view>
+
 					</view>
 					<uniLoadMore></uniLoadMore>
 				</swiper-item>
@@ -106,34 +114,39 @@
 	export default {
 		data() {
 			return {
+				isImgShow: null,
 				tabCurIndex: 0,
 				scoActive: 0,
 				// moreActive: 0,
 				orderList: [{
-					imgUrl: "../../static/images/item12.jpg",
-					text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
-					tagList: ["别的不说", "123"],
-					price: '125:00',
-					volume: 12
-				}, {
-					imgUrl: "../../static/images/item12.jpg",
-					text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
-					tagList: ["别的不说", "123"],
-					price: '125:00',
-					volume: 12
-				}, {
-					imgUrl: "../../static/images/item12.jpg",
-					text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
-					tagList: ["别的不说", "123"],
-					price: '125:00',
-					volume: 12
-				}, {
-					imgUrl: "../../static/images/item12.jpg",
-					text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
-					tagList: ["别的不说", "123"],
-					price: '125:00',
-					volume: 12
-				}],
+						imgUrl: "../../static/images/item12.jpg",
+						text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
+						tagList: ["别的不说", "123"],
+						price: '125.80',
+						volume: 12
+					},
+					{
+						imgUrl: "../../static/images/item12.jpg",
+						text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
+						tagList: ["别的不说", "123"],
+						price: '125.00',
+						volume: 12
+					},
+					{
+						imgUrl: "../../static/images/item12.jpg",
+						text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
+						tagList: ["别的不说", "123"],
+						price: '125.00',
+						volume: 12
+					},
+					{
+						imgUrl: "../../static/images/item12.jpg",
+						text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
+						tagList: ["别的不说", "123"],
+						price: '125.00',
+						volume: 12
+					}
+				],
 
 
 				moreClassify: [{
@@ -328,9 +341,15 @@
 		},
 		methods: {
 			changeTab: function(e) {
-				console.log(e.target)
 				this.tabCurIndex = e.target.current;
+			},
+			changeImg: function(num) {
+				this.isImgShow = num
 			}
+		},
+
+		computed: {
+
 		},
 		components: {
 			uniLoadMore
@@ -363,12 +382,52 @@
 			padding: 0 10rpx;
 			box-sizing: border-box;
 			margin-bottom: 20rpx;
+
 			.pro_item {
 				background: #fff;
 				border-radius: 14rpx;
 				overflow: hidden;
+				position: relative;
+
+				.pro_mask {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+					background: rgba(0, 0, 0, 0.5);
+					z-index: 9;
+
+					.mask_bot {
+						height: 25%;
+						color: #fff;
+						font-size: 32rpx;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						background: rgba(0, 0, 0, 0.5);
+					}
+
+					.mask_top {
+						height: 75%;
+						padding: 60rpx 25rpx;
+						box-sizing: border-box;
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+
+						.top_li {
+							background: #fff;
+							height: 65rpx;
+							line-height: 65rpx;
+							text-align: center;
+							border-radius: 40rpx;
+						}
+					}
+				}
+
 				.item_expre {
-					padding: 0 10rpx;
+					padding: 0 15rpx 15rpx;
 					box-sizing: border-box;
 
 					.item_tag {
@@ -757,6 +816,6 @@
 	uni-swiper-item {
 		overflow: visible;
 		box-sizing: border-box;
-		    padding: 0 10px;
+		padding: 0 10px;
 	}
 </style>
