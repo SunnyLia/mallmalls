@@ -25,6 +25,9 @@
 	}
 
 	/* #endif */
+	body {
+		background: #f5f5f5;
+	}
 
 	.uni-countdown__number {
 		width: 35rpx !important;
@@ -40,10 +43,12 @@
 		line-height: 1 !important;
 		color: #ff611d !important;
 	}
-	uni-swiper .uni-swiper-wrapper{
+
+	uni-swiper .uni-swiper-wrapper {
 		overflow: visible;
 	}
-	uni-page-wrapper{
+
+	uni-page-wrapper {
 		background: #eaeaea;
 	}
 </style>

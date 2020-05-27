@@ -1,11 +1,11 @@
 <template>
 	<view class="container">
 
-		<!-- 	<view class="search-box">
+		<view class="search-box">
 			<image src="../../static/images/scan.png" mode=""></image>
 			<view class="search-text">
 				<image src="../../static/images/search.png" mode="" class="ser-img"></image>
-				<input class="ser-input" type="text" value="输入关键字搜索" disabled />
+				<input class="ser-input" type="text" placeholder="输入关键字搜索" />
 				<text class="ser-text">搜索</text>
 			</view>
 			<image src="../../static/images/message.png" mode=""></image>
@@ -17,7 +17,7 @@
 			<image class="cls_img" src="../../static/images/classify.png"></image>
 		</view>
 		<view class="swipe_box">
-			<swiper class="swiper" :indicator-dots="true" circular="true" indicator-active-color="#0aa082" :autoplay="true"
+			<swiper class="swiper" :indicator-dots="true" circular="true" indicator-active-color="#0aa082" :autoplay="false"
 			 interval="2000">
 				<swiper-item class="swi_item" v-for="(item, index) in swipeList" :key="index">
 					<image :src="item.src"></image>
@@ -34,7 +34,6 @@
 			<image src="../../static/images/jds.gif"></image>
 		</view>
 		<view class="pinlei_box">
-			<uni-countdown class="countDown" :show-day="false" :hour="1" :minute="12" :second="12"></uni-countdown>
 			<view class="pl_item" v-for="(item,index) in pinleiList" :key="index">
 				<image :src="item.url" class="pl_img"></image>
 				<view class="pl_item_ul">
@@ -62,9 +61,10 @@
 					</swiper-item>
 				</swiper>
 			</view>
-		</view> -->
-
-		<view class="more_box">
+			<uni-countdown class="countDown" :show-day="false" :hour="1" :minute="12" :second="12"></uni-countdown>
+		</view>
+		<view class="copy_morebox" v-show="moreBoxFixed"></view>
+		<view class="more_box" :class="{'isFixed' : moreBoxFixed}">
 			<block v-for="(item,index) in moreClassify" :key="index">
 				<view class="more_classify" :class="{'active':index == tabCurIndex}">
 					<view class="more_top">{{item.name}}</view>
@@ -103,6 +103,7 @@
 
 					</view>
 					<uniLoadMore></uniLoadMore>
+					<view style="height: 80rpx;"></view>
 				</swiper-item>
 			</swiper>
 		</view>
@@ -117,12 +118,27 @@
 				isImgShow: null,
 				tabCurIndex: 0,
 				scoActive: 0,
-				// moreActive: 0,
+				moreBoxFixed: false,
+				moreBoxHei: 0,
 				orderList: [{
 						imgUrl: "../../static/images/item12.jpg",
 						text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
 						tagList: ["别的不说", "123"],
 						price: '125.80',
+						volume: 12
+					},
+					{
+						imgUrl: "../../static/images/item12.jpg",
+						text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
+						tagList: ["别的不说", "123"],
+						price: '125.00',
+						volume: 12
+					},
+					{
+						imgUrl: "../../static/images/item12.jpg",
+						text: "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
+						tagList: ["别的不说", "123"],
+						price: '125.00',
 						volume: 12
 					},
 					{
@@ -345,9 +361,23 @@
 			},
 			changeImg: function(num) {
 				this.isImgShow = num
+			},
+			handleScroll: function() {
+				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+				if (scrollTop >= this.moreBoxHei) {
+					this.moreBoxFixed = true
+				} else {
+					this.moreBoxFixed = false
+				}
 			}
 		},
-
+		mounted() {
+			this.moreBoxHei = document.querySelector('.more_box').offsetTop;
+			window.addEventListener('scroll', this.handleScroll)
+		},
+		destroyed() {
+			window.removeEventListener('scroll', this.handleScroll)
+		},
 		computed: {
 
 		},
@@ -362,6 +392,7 @@
 		// padding: 0 20rpx;
 		color: #7A7E83;
 		font-size: 24rpx;
+		background: #fff;
 	}
 
 	//倒计时
@@ -372,9 +403,15 @@
 	}
 
 	.productList {
+
 		// padding: 0 20rpx;
 		// background: #eaeaea;
 		// box-sizing: border-box;
+		uni-swiper-item {
+			overflow: visible;
+			box-sizing: border-box;
+			padding: 0 10px;
+		}
 
 		.pro_half {
 			width: 50%;
@@ -498,9 +535,14 @@
 		}
 	}
 
+	.copy_morebox {
+		height: 115rpx;
+	}
+
 	.more_box {
 		display: flex;
-		background: #eaeaea;
+		background: #F5F5F5;
+		padding: 20rpx 0;
 
 		.more_classify {
 			width: 20%;
@@ -543,16 +585,25 @@
 		}
 	}
 
+	.more_box.isFixed {
+		position: fixed;
+		background: #FFFFFF;
+		top: 80rpx;
+		left: 0;
+		z-index: 9;
+		width: 100%;
+	}
+
 	.pinlei_box {
-		padding: 20rpx;
-		background: #eaeaea;
+		padding: 20rpx 20rpx 0;
+		background: #f5f5f5;
 		position: relative;
 
 		.pl_news {
 			height: 80rpx;
 			line-height: 80rpx;
 			background: #fff;
-			border-top: 1px solid #eaeaea;
+			border-top: 1px solid #f5f5f5;
 			border-radius: 0 0 20rpx 20rpx;
 			padding: 0 20rpx;
 			display: flex;
@@ -652,6 +703,7 @@
 		}
 
 		.pl_item:nth-child(2n) {
+			border-right: 0;
 
 			.pl_item_left,
 			.pl_item_right {
@@ -662,6 +714,7 @@
 
 	.staImg_box {
 		padding: 10px 0;
+		font-size: 0;
 
 		image {
 			width: 100%;
@@ -685,13 +738,12 @@
 	}
 
 	.swipe_box {
-		padding: 0 15rpx;
+		padding: 0 20rpx;
 		box-sizing: border-box;
 
 		.swiper {
-			width: 100%;
 			height: 250rpx;
-			border-radius: 16rpx;
+			border-radius: 20rpx;
 			overflow: hidden;
 
 			image {
@@ -757,10 +809,11 @@
 		z-index: 9999;
 		width: 100%;
 		display: flex;
-		padding: 10rpx 20rpx;
+		padding: 0 20rpx;
 		box-sizing: border-box;
 		align-items: center;
-
+		background: #fff;
+		height: 80rpx;
 		image {
 			width: 55rpx;
 			height: 55rpx;
@@ -811,11 +864,5 @@
 
 	.swiper .uni-swiper-wrapper {
 		overflow: visible !important;
-	}
-
-	uni-swiper-item {
-		overflow: visible;
-		box-sizing: border-box;
-		padding: 0 10px;
 	}
 </style>
