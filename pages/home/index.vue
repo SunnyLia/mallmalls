@@ -75,35 +75,36 @@
 		<view class="productList">
 			<swiper class="swiper" @change="changeTab" :current="tabCurIndex">
 				<swiper-item v-for="(item,index) in moreClassify" :key="index">
-					<view class="pro_half" v-for="(val,ind) in orderList" :key="ind">
-						<view class="pro_item">
-							<view class="pro_mask" @click="changeImg" v-show="ind == isImgShow">
-								<view class="mask_top">
-									<view class="top_li">商品不感兴趣</view>
-									<view class="top_li">蒙蔽更多同类</view>
-									<view class="top_li">图片引起不适</view>
-								</view>
-								<view class="mask_bot">找相似 》</view>
-							</view>
-							<image class="item_img" :src="val.imgUrl"></image>
-							<view class="item_expre">
-								<view class="item_text">{{val.text}}</view>
-								<view class="item_tag">
-									<view class="tag" v-for="(v,i) in val.tagList" :key="i">{{v}}</view>
-								</view>
-								<view class="item_price">
-									<view class="price_left">
-										<text class="red">￥<text class="big">{{val.price.split(".")[0]}}</text>.{{val.price.split(".")[1]}}</text>
-										<text>销售{{val.volume}}笔</text>
+					<scroll-view @scrolltolower="getScol" scroll-y="true">
+						<view  class="pro_half" v-for="(val,ind) in orderList" :key="ind">
+							<view class="pro_item">
+								<view class="pro_mask" @click="changeImg" v-show="ind == isImgShow">
+									<view class="mask_top">
+										<view class="top_li">商品不感兴趣</view>
+										<view class="top_li">蒙蔽更多同类</view>
+										<view class="top_li">图片引起不适</view>
 									</view>
-									<image @click="changeImg(ind)" class="price_right" src="../../static/images/omit.png"></image>
+									<view class="mask_bot">找相似 》</view>
+								</view>
+								<image class="item_img" :src="val.imgUrl"></image>
+								<view class="item_expre">
+									<view class="item_text">{{val.text}}</view>
+									<view class="item_tag">
+										<view class="tag" v-for="(v,i) in val.tagList" :key="i">{{v}}</view>
+									</view>
+									<view class="item_price">
+										<view class="price_left">
+											<text class="red">￥<text class="big">{{val.price.split(".")[0]}}</text>.{{val.price.split(".")[1]}}</text>
+											<text>销售{{val.volume}}笔</text>
+										</view>
+										<image @click="changeImg(ind)" class="price_right" src="../../static/images/omit.png"></image>
+									</view>
 								</view>
 							</view>
 						</view>
-
-					</view>
-					<uniLoadMore></uniLoadMore>
-					<view style="height: 80rpx;"></view>
+						<!-- <uniLoadMore></uniLoadMore> -->
+						<view style="height: 100rpx;"></view>
+					</scroll-view>
 				</swiper-item>
 			</swiper>
 		</view>
@@ -356,6 +357,9 @@
 			}
 		},
 		methods: {
+			getScol:function(e){
+				console.log(e)
+			},
 			changeTab: function(e) {
 				this.tabCurIndex = e.target.current;
 			},
