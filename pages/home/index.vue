@@ -136,18 +136,13 @@
 			},
 			handleScroll: function() {
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+				console.log("~~~" + scrollTop)
 				if (scrollTop >= this.moreBoxHei) {
 					this.moreBoxFixed = true
 				} else {
 					this.moreBoxFixed = false
 				}
 			}
-		},
-		created() {
-			let that = this;
-			request(function(res) {
-				that.homeList = res;
-			})
 		},
 		watch: {
 			homeList: function() {
@@ -157,13 +152,19 @@
 				})
 			}
 		},
+		computed: {},
+		created() {
+			let that = this;
+			request(function(res) {
+				that.homeList = res;
+			})
+		},
 		mounted() {
-			window.addEventListener('scroll', this.handleScroll);
+			// window.addEventListener('scroll', this.handleScroll);
 		},
 		destroyed() {
-			window.removeEventListener('scroll', this.handleScroll)
+			// window.removeEventListener('scroll', this.handleScroll)
 		},
-		computed: {},
 		components: {
 			uniLoadMore
 		},
@@ -173,6 +174,15 @@
 		onShow: function() {},
 		// 监听页面初次渲染完成
 		onReady: function() {},
+		// 监听页面隐藏
+		onHide: function() {},
+		onPageScroll: function(val) {
+			if (val.scrollTop >= this.moreBoxHei) {
+				this.moreBoxFixed = true
+			} else {
+				this.moreBoxFixed = false
+			}
+		},
 	}
 </script>
 

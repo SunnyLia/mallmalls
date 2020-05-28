@@ -11,6 +11,34 @@ const orderList = [{
 		"tagList": ["别的不说", "123"],
 		"price": "125.80",
 		"volume": 12
+	},
+	{
+		"imgUrl": "../../static/images/item12.jpg",
+		"text": "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
+		"tagList": ["别的不说", "123"],
+		"price": "125.80",
+		"volume": 12
+	},
+	{
+		"imgUrl": "../../static/images/item12.jpg",
+		"text": "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
+		"tagList": ["别的不说", "123"],
+		"price": "125.80",
+		"volume": 12
+	},
+	{
+		"imgUrl": "../../static/images/item12.jpg",
+		"text": "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
+		"tagList": ["别的不说", "123"],
+		"price": "125.80",
+		"volume": 12
+	},
+	{
+		"imgUrl": "../../static/images/item12.jpg",
+		"text": "我答复伙食我答复伙食费和我换的搜房和佛挡杀佛而我很发达是佛第三方的",
+		"tagList": ["别的不说", "123"],
+		"price": "125.80",
+		"volume": 12
 	}
 ]
 
@@ -152,16 +180,14 @@ const functList = [{
 		"url": "../../static/images/kbsh.png"
 	}
 ]
-const swipeList = [
-	{
+const swipeList = [{
 		"src": "../../static/images/home_1.jpg"
 	},
 	{
 		"src": "../../static/images/home_2.jpg"
 	}
 ]
-const classifyList = [
-	{
+const classifyList = [{
 		"name": "首页"
 	},
 	{
