@@ -1,13 +1,13 @@
 const baseUrl = "http://127.0.0.1:8081"
-const getOrderList = function(){
+const getOrderList = function(func) {
+	uni.showLoading({
+		title: '加载中'
+	});
 	uni.request({
-	    url: baseUrl+"/getOrderList", 
-	    success: (res) => {
-	        console.log(res);
-	       
-	    },
-		fail: (res) => {
-		    console.log(res);
+		url: baseUrl + "/getHomeList",
+		success: (res) => {
+			func(res.data)
+			uni.hideLoading();
 		}
 	});
 }

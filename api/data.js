@@ -205,5 +205,11 @@ const classifyList = [
 	}
 ]
 module.exports = {
-	orderList
+	orderList,
+	moreClassify,
+	taobNews,
+	pinleiList,
+	functList,
+	swipeList,
+	classifyList
 }
