@@ -101,7 +101,7 @@
 								</view>
 							</view>
 						</view>
-						<!-- <uniLoadMore></uniLoadMore> -->
+						<uniLoadMore :status="loadingStatus"></uniLoadMore>
 						<view style="height: 100rpx;"></view>
 					</scroll-view>
 				</swiper-item>
@@ -121,7 +121,8 @@
 				scoActive: 0,
 				moreBoxFixed: false,
 				moreBoxHei: 0,
-				homeList: {}
+				homeList: {},
+				loadingStatus: "loading"
 			}
 		},
 		methods: {
@@ -133,15 +134,6 @@
 			},
 			changeImg: function(num) {
 				this.isImgShow = num
-			},
-			handleScroll: function() {
-				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-				console.log("~~~" + scrollTop)
-				if (scrollTop >= this.moreBoxHei) {
-					this.moreBoxFixed = true
-				} else {
-					this.moreBoxFixed = false
-				}
 			}
 		},
 		watch: {
@@ -155,16 +147,11 @@
 		computed: {},
 		created() {
 			let that = this;
-			request(function(res) {
+			request.getHomeList(function(res) {
 				that.homeList = res;
 			})
 		},
-		mounted() {
-			// window.addEventListener('scroll', this.handleScroll);
-		},
-		destroyed() {
-			// window.removeEventListener('scroll', this.handleScroll)
-		},
+		mounted() {},
 		components: {
 			uniLoadMore
 		},
@@ -176,11 +163,23 @@
 		onReady: function() {},
 		// 监听页面隐藏
 		onHide: function() {},
+		// 监听页面滚动
 		onPageScroll: function(val) {
 			if (val.scrollTop >= this.moreBoxHei) {
 				this.moreBoxFixed = true
 			} else {
 				this.moreBoxFixed = false
+			}
+		},
+		// 页面滚动到底部的事件
+		onReachBottom: function() {
+			let that = this;
+			if (that.loadingStatus != "noMore") {
+				request.getOrderList(function(res) {
+					let list = [...that.homeList.orderList, ...res]
+					that.homeList.orderList = list;
+					that.loadingStatus = "noMore";
+				})
 			}
 		},
 	}
