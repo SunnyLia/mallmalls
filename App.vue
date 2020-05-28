@@ -47,8 +47,4 @@
 	uni-swiper .uni-swiper-wrapper {
 		overflow: visible;
 	}
-
-	uni-page-wrapper {
-		background: #eaeaea;
-	}
 </style>

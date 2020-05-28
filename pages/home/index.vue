@@ -112,6 +112,7 @@
 </template>
 
 <script>
+	import request from '@/api/request';
 	import uniLoadMore from '@/components/uni-load-more/uni-load-more.vue';
 	export default {
 		data() {
@@ -377,7 +378,8 @@
 		},
 		mounted() {
 			this.moreBoxHei = document.querySelector('.more_box').offsetTop;
-			window.addEventListener('scroll', this.handleScroll)
+			window.addEventListener('scroll', this.handleScroll);
+			request()
 		},
 		destroyed() {
 			window.removeEventListener('scroll', this.handleScroll)
