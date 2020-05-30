@@ -65,7 +65,7 @@
 		<view class="copy_morebox" v-show="moreBoxFixed"></view>
 		<view class="more_box" :class="{'isFixed' : moreBoxFixed}">
 			<block v-for="(item,index) in homeList.moreClassify" :key="index">
-				<view class="more_classify" :class="{'active':index == tabCurIndex}">
+				<view class="more_classify" :class="{'active':index == tabCurIndex}" @click="clickTab(index)">
 					<view class="more_top">{{item.name}}</view>
 					<text class="more_bot">{{item.text}}</text>
 				</view>
@@ -74,7 +74,7 @@
 		<view class="productList">
 			<swiper class="swiper" @change="changeTab" :current="tabCurIndex">
 				<swiper-item v-for="(item,index) in homeList.moreClassify" :key="index">
-					<scroll-view @scrolltolower="getScol" scroll-y="true">
+<!-- 					<scroll-view @scrolltolower="getScol" scroll-y="true"> -->
 						<view class="pro_half" v-for="(val,ind) in homeList.orderList" :key="ind">
 							<view class="pro_item">
 								<view class="pro_mask" @click="changeImg" v-show="ind == isImgShow">
@@ -103,7 +103,7 @@
 						</view>
 						<uniLoadMore :status="loadingStatus"></uniLoadMore>
 						<view style="height: 100rpx;"></view>
-					</scroll-view>
+					<!-- </scroll-view> -->
 				</swiper-item>
 			</swiper>
 		</view>
@@ -126,8 +126,8 @@
 			}
 		},
 		methods: {
-			getScol: function(e) {
-				console.log(e)
+			clickTab: function(val) {
+				this.tabCurIndex = val;
 			},
 			changeTab: function(e) {
 				this.tabCurIndex = e.target.current;

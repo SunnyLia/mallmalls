@@ -1,6 +1,8 @@
 <template>
 	<view class="container">
-		<view class="fea_item">1</view>
+		<view class="fea_item">
+			<navigator url="./location/index" hover-class="navigator-hover">位置</navigator>
+		</view>
 		<view class="fea_item">1</view>
 		<view class="fea_item">1</view>
 		<view class="fea_item">1</view>
