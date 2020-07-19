@@ -151,7 +151,18 @@
 				that.homeList = res;
 			})
 		},
-		mounted() {},
+		mounted() {
+				uni.authorize({
+				    scope: 'scope.userLocation,scope.userInfo,scope.camera',
+				    success() {
+				        console.log("授权成功")
+				    },
+					fail() {
+					    console.log("授权失败")
+					}
+				})
+			
+		},
 		components: {
 			uniLoadMore
 		},

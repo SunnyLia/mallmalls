@@ -9,11 +9,13 @@
 			// uni.showLoading({
 			// 	title: '加载中'
 			// });
+			
 		},
 		// 当 uni-app 启动，或从后台进入前台显示
 		onShow: function() {},
 		// 当 uni-app 从前台进入后台
-		onHide: function() {}
+		onHide: function() {},
+
 	};
 </script>
 

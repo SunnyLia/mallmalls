@@ -7,7 +7,7 @@
 		<view class="fea_item">1</view>
 		<view class="fea_item">1</view>
 		<view class="fea_item">1</view>
-		<view class="fea_item">1</view>
+		<view class="fea_item">1</view>	
 		<view class="fea_item">1</view>
 		<view class="fea_item">1</view>
 	</view>

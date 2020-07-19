@@ -23,6 +23,29 @@
 		},
 		methods: {
 
+		},
+		mounted() {
+		},
+		onLoad() {
+			uni.authorize({
+			    scope: 'scope.userLocation,scope.userInfo,scope.camera',
+			    success() {
+			        console.log("授权成功")
+			    },
+				fail() {
+				    console.log("授权失败")
+				}
+			})
+			console.log(11111111111111)
+			uni.getLocation({
+			    type: 'wgs84',
+			    success: function (res) {
+			        console.log('当前位置的经度：' + res.longitude);
+			        console.log('当前位置的纬度：' + res.latitude);
+			    },fail: function (res) {
+			        console.log('错误：' + res);
+			    }
+			});
 		}
 	}
 </script>
