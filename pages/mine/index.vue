@@ -17,7 +17,8 @@
 		},
 		onLoad() {
 			let that = this;
-			let userInfo = JSON.parse(uni.getStorageSync('userInfo'));
+			let userInfo = uni.getStorageSync('userInfo');
+			
 			if (!userInfo) {
 				//获取服务供应商
 				uni.getProvider({
@@ -46,6 +47,7 @@
 					}
 				});
 			} else {
+				userInfo = JSON.parse(uni.getStorageSync('userInfo'));
 				that.phoImg = userInfo.avatarUrl;
 				that.phoNik = userInfo.nickName;
 			}
