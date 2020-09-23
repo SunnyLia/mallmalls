@@ -1,0 +1,25 @@
+<view class="db_goodsList">
+    <view class="clearfix">
+        <view wx:for="{{searchLists}}" wx:for-item="product">
+            <view class="pdt_item">
+                <navigator href="" class="pdt_img">
+                    <image src="{{product.cover_url}}"></image>
+                    <icon class="fa fa-heart-o" bindtap="onHeart($event)"></icon>
+                </navigator>
+                <view class="pdt_detail">
+                    <view class="pdt_title">
+                        <navigator href="{{product.url}}">{{product.title}}</navigator>
+                    </view>
+                    <view class="pdt_price">
+                        <text class="pdt_new_price">{{product.price}}</text>
+                        <text class="pdt_old_price" wx:if="{{product.price!=product.market_price}}">
+                            {{product.market_price}}
+                        </text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <div class="loading" wx:if="{{loadShow}}">努力加载中...</div>
+    <div class="none" wx:if="{{noned}}">已没有更多数据...</div>
+</view>

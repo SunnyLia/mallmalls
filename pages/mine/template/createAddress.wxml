@@ -1,0 +1,46 @@
+<template name="createAddress">
+    <view class="addressMask" animation="{{animationData}}">
+        <view class="mask">
+            <view class="title">
+                <text class="fl">新建地址</text>
+                <text class="fr" bindtap="showMask">x</text>
+            </view>
+            <form class="addForm">
+                <view class="items required">
+                    <input type="text" placeholder="收货人姓名" class="linage" name="user_name" />
+                </view>
+                <view class="items required">
+                    <input type="number" placeholder="收货人电话号码" class="linage" name="phone" />
+                </view>
+                <view class="items required">
+                    <input type="text" class="linage" placeholder="请选择" value="{{province}}--{{city}}--{{county}}" bindfocus="open" />
+                </view>
+                <view class="items required">
+                    <textarea placeholder="请输入详细地址，例街道号码，楼门号" name="detail"></textarea>
+                </view>
+
+                <view class="save">
+                    <text class="save-btn default">保存</text>
+                </view>
+            </form>
+        </view>
+    </view>
+    <!-- 弹出动画 -->
+    <view wx:if="{{condition}}" class="citypicker">
+        <picker-view indicator-style="height: 38px;" value="{{value}}" bindchange="bindChange" class="citybody">
+            <view class="cityheader">
+                <view bindtap="open" class="city-cancel">取消</view>
+                <view bindtap="open" class="city-true">确定</view>
+            </view>
+            <picker-view-column style="text-align:center;">
+                <view wx:for="{{provinces}}" wx:key="item" class="pickerItem">{{item}}</view>
+            </picker-view-column>
+            <picker-view-column style="text-align:center;">
+                <view wx:for="{{citys}}" wx:key="item" class="pickerItem">{{item}}</view>
+            </picker-view-column>
+            <picker-view-column style="text-align:center;">
+                <view wx:for="{{countys}}" wx:key="item" class="pickerItem">{{item}}</view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+</template>

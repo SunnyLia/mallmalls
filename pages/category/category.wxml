@@ -1,0 +1,10 @@
+<view class="category">
+  <!-- <Headers></Headers> -->
+  <view class="category_list">
+    <view>
+      <view wx:for="{{categorys}}" wx:for-index="index" wx:for-item="cty" wx:if="{{index < 9}}">
+        <navigator url="{{cty.url}}?id={{cty.id}}" class="{{cty.class_name}}">{{cty.text}}</navigator>
+      </view>
+    </view>
+  </view>
+</view>

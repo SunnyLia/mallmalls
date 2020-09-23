@@ -1,0 +1,170 @@
+.choAll {
+  background-color: #0aa082 !important;
+}
+page{
+    background: #f4f4f4;
+}
+.cartList .list {
+  margin-bottom: 2.2rem;
+}
+
+.footer .allAll {
+  margin-left: 0.5rem;
+}
+
+.footer .choice navigator {
+  display: inline-block;
+  height: 1.7rem;
+  width: 4.5rem;
+  background-color: #9a9a9a;
+  text-align: center;
+  color: #fff;
+}
+
+.footer {
+  background-color: #fff;
+  height: 1.7rem;
+  line-height: 1.7rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  font-size: 0.6rem;
+}
+
+.listBot .botWord .botPri .red {
+  font-size: 0.6rem;
+  color: #f05f50;
+  line-height: 1.2rem;
+}
+
+.listBot .botWord .botPri {
+  overflow: hidden;
+}
+
+.listBot .botWord .botPri .addSub text {
+  width: 1.2rem;
+  height: 100%;
+  text-align: center;
+  background-color: #e4e4e4;
+  font-size: 0.9rem;
+}
+
+.listBot .botWord .botPri .addSub {
+  width: 4rem;
+  height: 1.2rem;
+  border: 1px solid #e4e4e4;
+  border-radius: 0.1rem;
+  text-align: center;
+  line-height: 1.2rem;
+}
+
+.listBot .botWord .quality {
+  overflow: hidden;
+  color: #5c5c5c;
+  font-size: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.listBot .botWord {
+  font-size: 0.6rem;
+  width: 13rem;
+  display: inline-block;
+}
+
+.listBot .botWord .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  height: 1.6rem;
+  display: block;
+}
+
+.listBot navigator {
+  display: inline-block;
+  margin-right: 0.8rem;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.listBot navigator image {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.listBot .checkPos {
+  position: absolute;
+  left: 0.5rem;
+  top: 1.7rem;
+}
+
+.listBot {
+  position: relative;
+  margin-top: 0 !important;
+  border-bottom: 1px solid #e4e4e4;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+}
+
+.cartList .list .itemLi {
+  margin-bottom: 0.5rem;
+  background-color: #fff;
+}
+
+.cartList .list .itemLi .listTop {
+  padding: 0 0.5rem;
+  height: 2rem;
+  line-height: 2rem;
+  border-bottom: 1px solid #e4e4e4;
+  font-size: 0.6rem;
+}
+
+.cartList .list .itemLi .listTop navigator,.footer view text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cartList .list .itemLi .listTop icon,.footer view icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 0.15rem;
+}
+
+.clearfix::after, .clearfix::before {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+.toatle{
+  color: #f05f50;margin-right:0.5rem
+}
+/* <!-- 小程序购物车demo -->
+.c--f60{color: #f60;}
+.clamp1, .clamp2, .clamp3{display: -webkit-box!important; overflow: hidden; -webkit-box-orient: vertical;}
+.clamp1{-webkit-line-clamp:1;}
+.clamp2{-webkit-line-clamp:2;}
+.clamp3{-webkit-line-clamp:3;}
+ 
+.carts-list{padding: 0 20rpx;}
+.carts-list .carts-item{border-top: 1rpx solid #e3e3e3; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; padding: 20rpx 10rpx; width: 100%; position: relative;}
+.carts-list .carts-item:nth-child(1){border-top: 0;}
+.carts-item .carts-cnt{flex: 1; padding: 0 20rpx;}
+.carts-cnt .carts-image{float:left; margin-right: 20rpx; height: 150rpx; width: 150rpx;}
+.carts-cnt .carts-info{display: flex; flex-direction: column; justify-content: space-between; min-height: 150rpx;}
+.carts-cnt .carts-title{font-size: 28rpx;}
+.carts-cnt .carts-subtitle{display: flex; flex-direction: row; font-size: 28rpx;}
+.carts-list .carts-item .carts-del{position: absolute; top: 20rpx; right: 10rpx;}
+ 
+
+.carts-num{border: 1rpx solid #aaa; border-radius: 5rpx; display: flex; align-items: center; align-self: flex-end; text-align: center; height: 50rpx;}
+.carts-num input{border-left: 1rpx solid #aaa; border-right: 1rpx solid #aaa; font-size: 30rpx; font-family: arial; height: 50rpx; line-height: 50rpx; width: 80rpx;}
+.carts-num .minus, .carts-num .plus{color: #000; text-align: center; line-height: 50rpx; width: 40rpx;}
+.carts-num .minus{font-size: 30rpx;}
+.carts-num .minus.disabled{color: #ccc;} */

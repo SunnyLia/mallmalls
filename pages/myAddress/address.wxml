@@ -1,0 +1,33 @@
+<import src="../template/createAddress.wxml" />
+<view class="myAddress">
+  <view class="address">
+    <view class="addressList">
+      <view wx:for="{{addressLists}}" wx:key="{{index}}" class="listLi">
+        <view class="listTop clearfix">
+          <view class="fl">收货人：{{item.user_name}}</view>
+          <view class="fr">{{item.phone}}</view>
+        </view>
+        <view class="listBot">
+          <view class="addres">
+            {{item.province_name}} {{item.city_name}} {{item.district_name}} {{item.detailed}}
+          </view>
+          <view class="buttons clearfix">
+            <view class="fl">
+              <text class="modifyAdd">修改地址</text>
+              <text class="deleteAdd">删除</text>
+            </view>
+            <view class="fr">
+              <text class="default" wx:if="{{item.is_default}}">默认</text>
+              <text class="defaultAdd" wx:else>设为默认</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view bindtap="showMask" class="click">
+      <view class="add">+</view>
+      <view>新建地址</view>
+    </view>
+  </view>
+</view>
+<template is="createAddress" data="{{animationData:animationData,...animate}}" />

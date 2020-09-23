@@ -1,0 +1,48 @@
+.category_list{
+    font-size: 0;
+    text-align: center;
+    padding: 0.2rem 0.1rem;
+    box-sizing: border-box;
+  }
+  .category_list view view{
+    display: inline-block;
+    width: 30%;
+    height: 2.2rem;
+    padding: 0 0.1rem;
+    margin: 0.1rem 0;
+  }
+  .category_list navigator{
+    display: block;
+    line-height: 2.2rem;
+    text-align: center;
+    color: #4a4a4a;
+    font-size: 0.6rem;
+    border-radius: 0.2rem;
+  }
+  .category_list .red{
+    background-color: #ffb2bb;
+  }
+  .category_list .blue{
+    background-color: #89b7ec;
+  }
+  .category_list .purple{
+    background-color: #c2a0e0;
+  }
+  .category_list .sky{
+    background-color: #b2e6ff;
+  }
+  .category_list .yellow{
+    background-color: #e6e7a4;
+  }
+  .category_list .pink{
+    background-color: #e0a0d1;
+  }
+  .category_list .grass{
+    background-color: #b2ffc5;
+  }
+  .category_list .green{
+    background-color: #f9b97b;
+  }
+  .category_list .gray{
+    background-color: #b9b8b8;
+  }

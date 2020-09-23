@@ -1,0 +1,68 @@
+<template name="cupines">
+  <view class="duihuan" wx:if="{{status == 1}}">
+    <input type="text" placeholder="请输入优惠码" />
+    <text>兑换</text>
+  </view>
+  <view class="unUsed">
+    <view wx:for="{{cuponeLists}}" wx:for-item="cupone" wx:key="index" wx:if="{{cupone.status == status}}">
+      <view class="{{status == 1 ? 'abc ' : 'abc abc_gray'}}">
+        <view class="abc_e">
+          <text wx:if="{{status == 2}}">已使用</text>
+          <text wx:elif="{{status == 3}}">已过期</text>
+        </view>
+        <view class="abc_a">
+          <icon></icon>
+          <icon></icon>
+          <icon></icon>
+          <icon></icon>
+          <icon></icon>
+          <icon></icon>
+          <icon></icon>
+          <icon></icon>
+        </view>
+        <view class="abc_b">
+          <view class="b_top">
+            <text class='b_t_l'>￥</text>
+            <text class='b_t_r'>{{cupone.offset_amount}}</text>
+          </view>
+          <view class="b_bot">满{{cupone.min_consumption}}元可用</view>
+        </view>
+        <view class="abc_c">
+          <view class="c_top">{{cupone.name}}</view>
+          <view class="c_cen">{{cupone.description}}</view>
+          <view class="c_bot">有效期：{{cupone.display_expire}}</view>
+        </view>
+        <view class="abc_d">
+          <icon></icon>
+          <icon></icon>
+          <icon></icon>
+          <icon></icon>
+          <icon></icon>
+          <icon></icon>
+          <icon></icon>
+          <icon></icon>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{status == 2}}">
+      <!-- <template is="orderNone" data="{{blankPrompt}}"/> -->
+      <!-- <view class="cartEnpty">
+        <view class="enpty">
+          <image src="../../../images/cart_enpty.png" alt=""></image>
+          <text>{{blankPrompt}}</text>
+          <navigator url="/home">去逛逛吧</navigator>
+        </view>
+      </view> -->
+    </view>
+  </view>
+</template>
+
+<template name="orderNone">
+  <view class="cartEnpty">
+    <view class="enpty">
+      <image src="../../../images/cart_enpty.png" alt=""></image>
+      <text>{{blankPrompt}}</text>
+      <navigator url="/home">去逛逛吧</navigator>
+    </view>
+  </view>
+</template>

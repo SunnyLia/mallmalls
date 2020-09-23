@@ -1,0 +1,79 @@
+
+<view class="db_header">
+  <view class="db_header_main">
+    <view class="db_logo_box" hidden="{{isSearch}}">
+      <view class="db_logo_text">
+        <navigator url="../index/index">市集</navigator>
+      </view>
+      <view class="db_search_icon" bindtap="onSearch">
+        <image src="../../images/search.png"></image>
+      </view>
+    </view>
+    <view class="db_search_box" hidden="{{!isSearch}}">
+      <input type="text" name="content" class="ipt_search" bindconfirm="onSubmit" />
+      <view class="btn_search" bindtap="onSubmit">
+        <image src="../../images/search.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="db_mask" hidden="{{!isSearch}}" bindtap="onSearch"></view>
+</view>
+<!-- 轮播 -->
+<view class="db_swiper">
+  <swiper indicator-dots="{{swipData.indicatorDots}}" autoplay="{{swipData.autoplay}}" interval="{{swipData.interval}}" duration="{{swipData.duration}}">
+    <block wx:for="{{swipData.imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<!-- 产品展示 -->
+<view class='db_products'>
+  <navigator wx:for="{{products}}" class="pdt_item {{item.id==5?'fullLi':''}}" url="{{item.url}}">
+    <image src="{{item.src}}" class="pdt_img"></image>
+    <view class='pdt_detail'>
+      <view class="pdt_title">{{item.title}}</view>
+      <view class="pdt_price">
+        <view class="pdt_new_price">{{item.price}}</view>
+        <view class="pdt_old_price">{{item.market_price}}</view>
+      </view>
+    </view>
+  </navigator>
+</view>
+<!-- 店铺展示 -->
+<view class="db_hot_shop">
+  <view class="db_shop_item" wx:for="{{shops}}">
+    <!-- 店铺名称和简介 -->
+    <view class="shop_info">
+      <view class="shop_top">
+        <navigator class="shop_img">
+          <image src="{{item.icon}}"></image>
+        </navigator>
+        <navigator class="shop_name">{{item.name}}</navigator>
+      </view>
+      <view class="shop_intrduction">{{item.intrduction}}</view>
+    </view>
+    <view class="db_swiper">
+      <swiper display-multiple-items="{{swiperOption.slidesPerView}}">
+        <swiper-item wx:for="{{item.products}}" wx:for-item="slide" class="swiper-slide">
+          <navigator href="{{slide.url}}">
+            <view class="db_img">
+              <image src="{{slide.src}}"></image>
+            </view>
+            <view class="db_word">
+              <view class="word_p">{{slide.title}}</view>
+              <view>
+                <view class="word_span">{{slide.newPrice}}</view>
+                <view class="word_del">{{slide.oldPrice}}</view>
+              </view>
+            </view>
+          </navigator>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="shop_entry">
+      <navigator href="">进入店铺 >></navigator>
+    </view>
+  </view>
+</view>
